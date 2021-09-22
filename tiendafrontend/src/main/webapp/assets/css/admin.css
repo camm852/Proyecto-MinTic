@@ -196,6 +196,7 @@ body{
     display: inline-block;
     background-color: var(--main-color);
     padding: 10px;
+    border: none;
     border-radius: 20px;
     font-weight:500;
     margin-right: 20px;
@@ -204,7 +205,10 @@ body{
     color: var(--secondary-color-1);
     text-align: center;
     text-decoration: none;
+
 }
+
+
 
 .button-form:hover{
     background-color: #9e80ba;

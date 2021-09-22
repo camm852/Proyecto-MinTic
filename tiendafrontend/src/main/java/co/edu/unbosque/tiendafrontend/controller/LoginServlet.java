@@ -59,7 +59,7 @@ public class LoginServlet extends HttpServlet {
 				
 			}
 			else{
-				System.out.println("NOOOOOOOO");
+				System.out.println("No esta usuario");
 				response.sendRedirect("index.jsp");
 			}
 			

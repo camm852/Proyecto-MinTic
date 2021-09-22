@@ -39,16 +39,12 @@ public class consultarUsuarioServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.print("Consulta");
 		long cedula = Long.parseLong(request.getParameter("cedulaGestor"));
 		
-
-		
+		System.out.print("Consulta");
 		UsuarioController objContro = new UsuarioController();
 		objContro.consultaUsuario(cedula);
 			
-
-		
 	}
 
 }

@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ page import="co.edu.unbosque.tiendafrontend.vo.*" %>
@@ -95,19 +94,20 @@
                     <input class="input-form" id="usuario" type="text" name="usuarioGestor" autocomplete="off">
 
                     <label class="label-form" for="nombre"><i class="fas fa-user-tag"></i>Nombre Completo</label>
-                    <input class="input-form" id="nombre" type="password" name="nombreGestor" autocomplete="off">
+                    <input class="input-form" id="nombre" type="text" name="nombreGestor" autocomplete="off">
 
                     <label class="label-form" for="password"><i class="fas fa-lock"></i>Contraseña</label>
                     <input class="input-form" id="password" type="text" name="passwordGestor">
 
-                    <label class="label-form" for="Correo"><i class="fas fa-at"></i>Correo Electrónico</label>
+                    <label class="label-form" for="correo"><i class="fas fa-at"></i>Correo Electrónico</label>
                     <input class="input-form" id="correo" type="email" name="emailGestor" autocomplete="off">
                     <div class="button-container">
-                        <a class="button-form" href="#">Consultar</a>
+                   
                         <input class="button-form" type="submit" value="Agregar" onclick="form.action='GestorUsuariosServlet';">                     
      					<input class="button-form" type="submit" value="Consultar" onclick="form.action='consultarUsuarioServlet';">
-                        <a class="button-form" href="#">Actualizar</a>
-                        <a class="button-form" href="#">Borrar</a>
+     					<input class="button-form" type="submit" value="Actualizar" onclick="form.action='ActualizarUsuarioServlet';">                     
+     					<input class="button-form" type="submit" value="Eliminar" onclick="form.action='EliminarUsuarioServlet';">
+                        
                     </div>
                 </form>
                 
