@@ -8,9 +8,11 @@ public class UsuarioVO {
 	private String password_usuario;
 	private String usuario;
 	
+	public UsuarioVO() {
+		
+	}
 	
-	
-	/*public UsuarioVO(int cedula_usuario, String email_usuario, String nombre_usuario, String password_usuario,
+	public UsuarioVO(int cedula_usuario, String email_usuario, String nombre_usuario, String password_usuario,
 			String usuario) {
 		super();
 		this.cedula_usuario = cedula_usuario;
@@ -18,7 +20,7 @@ public class UsuarioVO {
 		this.nombre_usuario = nombre_usuario;
 		this.password_usuario = password_usuario;
 		this.usuario = usuario;
-	}*/
+	}
 	public int getCedula_usuario() {
 		return cedula_usuario;
 	}

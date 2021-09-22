@@ -1,7 +1,6 @@
 package co.edu.unbosque.tiendafrontend.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,21 +8,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.edu.unbosque.tiendafrontend.vo.UsuarioVO;
+
 
 
 /**
  * Servlet implementation class EstudianteServlet
  */
-@WebServlet(name="loginServlet", urlPatterns = "/loginServlet")
-public class LoginServlet extends HttpServlet {
+@WebServlet(name="consultarUsuarioServlet", urlPatterns = "/consultarUsuarioServlet")
+public class consultarUsuarioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
  
 	
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public consultarUsuarioServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,7 +31,7 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	
 	}
 
 	/**
@@ -40,31 +39,16 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		UsuarioController objContro = new UsuarioController();
-		objContro.consultarUsuarios();
-		ArrayList<UsuarioVO> listaUsuarios = objContro.getListaUsuarios();
-		
-		
-		String user = request.getParameter("usuarioInput");
-		String contra = request.getParameter("passwordInput");
+		System.out.print("Consulta");
+		long cedula = Long.parseLong(request.getParameter("cedulaGestor"));
 		
 
-		for(UsuarioVO dto : listaUsuarios){ 
-			String misUsuarios = dto.getNombre_usuario();
-			String misContra = dto.getPassword_usuario();
+		
+		UsuarioController objContro = new UsuarioController();
+		objContro.consultaUsuario(cedula);
 			
-			if ( misUsuarios.equals(user) && misContra.equals(contra)){
-				System.out.println("EstaUsuario");
-				response.sendRedirect("control.jsp");
-				
-			}
-			else{
-				System.out.println("NOOOOOOOO");
-				response.sendRedirect("index.jsp");
-			}
-			
-		}
-	
+
+		
 	}
 
 }

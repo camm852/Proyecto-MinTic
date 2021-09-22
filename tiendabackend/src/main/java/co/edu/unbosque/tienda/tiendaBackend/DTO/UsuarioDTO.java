@@ -8,7 +8,7 @@ public class UsuarioDTO {
 	private String password_usuario;
 	private String usuario;
 	
-	
+	public UsuarioDTO() {}
 	
 	public UsuarioDTO(int cedula_usuario, String email_usuario, String nombre_usuario, String password_usuario,
 			String usuario) {

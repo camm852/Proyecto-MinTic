@@ -41,5 +41,63 @@ public class UsuarioDAO {
 	  }
 	  return misUsuarios;
 	 }
-
+	
+	  
+	    public boolean insertar_Usuario(UsuarioDTO usuario) {	    	 
+	  	  try {
+	  		  Conexion conex= new Conexion();
+	  	   PreparedStatement consulta = conex.getConnection().prepareStatement("insert into tienda.usuarios (cedula_usuario, email_usuario,nombre_usuario,password,usuario ) values(?,?,?,?,?)");
+	  	   System.out.println("Se hizo conexion");
+	  	 
+	  		   
+	  		   consulta.setInt(1, usuario.getCedula_usuario());
+	  		   consulta.setString(2, usuario.getEmail_usuario());
+	  		   consulta.setString(3, usuario.getNombre_usuario());
+	  		   consulta.setString(4, usuario.getPassword_usuario());
+	  		   consulta.setString(5, usuario.getUsuario());
+	  	    
+	  		   consulta.executeUpdate();
+	   
+	  	    consulta.close();
+	  	    conex.desconectar();
+	  	    return true;
+	  	 
+	  	  } catch (Exception e) {
+	  	   JOptionPane.showMessageDialog(null, "no se pudo consultar el usuario\n"+e);
+	  	  }
+	  	  return false;
+	  	 }
+	    
+	    public UsuarioDTO consultarUsuario(long cedula) {
+	        try {
+	            
+	             Conexion conex= new Conexion();
+	             PreparedStatement sentencia= conex.getConnection().prepareStatement("select * from tienda.usuarios where cedula_usuario=?");
+	             sentencia.setLong(1, cedula);
+	             ResultSet datos = sentencia.executeQuery();
+	             if(datos.next()){
+	                 UsuarioDTO estudiante = new UsuarioDTO();
+	                 estudiante.setCedula_usuario( datos.getInt("cedula_usuario") );
+	                 estudiante.setEmail_usuario(datos.getString("email_usuario"));
+	                 estudiante.setNombre_usuario(datos.getString("nombre_usuario"));
+	                 estudiante.setPassword_usuario(datos.getString("password"));
+	                 estudiante.setUsuario(datos.getString("usuario"));
+	                 
+	                 conex.desconectar();
+	                return estudiante;
+	             }
+	             else{
+	            	 conex.desconectar();
+	                 return null;
+	             }
+	              
+	        } catch (Exception e) {
+	            System.out.println("Error: "+e);
+	            return null;
+	        }
+	    }
+	    
+	  
 }
+
+

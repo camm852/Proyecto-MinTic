@@ -1,4 +1,4 @@
-package co.edu.unbosquetienda.tiendaBackend.DAO;
+package co.edu.unbosque.tiendafrontend.DAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,7 +9,7 @@ public class Conexion {
 	static String bd = "tienda";
 	   static String login = "root";
 	   static String password = "root";
-	   static String url = "jdbc:mysql://localhost:3306/"+bd+"?useSSL=false&serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8"; 
+	   static String url = "jdbc:mysql://localhost/"+bd; 
 	   
 	/*		static String bd = "yramirezdb";
 		   static String login = "admin";

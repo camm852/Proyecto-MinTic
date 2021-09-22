@@ -23,7 +23,7 @@
             <label class="label-form usuario-label" for="usuario"><i class="fas fa-user-tie"></i>Usuario</label>
             <input class="input-form" id="usuarioInput" type="text" name="usuarioInput">
             <label class="label-form" for="password"><i class="fas fa-lock"></i>Contraseña</label>
-            <input class="input-form" id="password" type="password" name="password">
+            <input class="input-form" id="password" type="password" name="passwordInput">
             <div class="button-container">
                 <input type="submit" class="button-form" value="Entrar">
                 <a class="button-form" href="#">Cancelar</a>

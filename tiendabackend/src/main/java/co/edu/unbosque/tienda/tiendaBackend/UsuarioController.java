@@ -22,5 +22,22 @@ public class UsuarioController {
 			return objDAO.listaDeUsuarios();
 		
 	}
+	
+	@RequestMapping("/anadirUsuario")
+	public boolean getWithoutRequestParam(UsuarioDTO userDTO) {
+		UsuarioDAO objDAO = new UsuarioDAO();
+		objDAO.insertar_Usuario(userDTO);
+	  return true;
+
+	}
+	
+	@RequestMapping("/consultarUsuario")
+	public UsuarioDTO consultarUsuario(long cedula) {
+		UsuarioDAO objDAO = new UsuarioDAO();
+		return objDAO.consultarUsuario(cedula);
+	   
+
+	}
+	
 
 }

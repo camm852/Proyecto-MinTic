@@ -11,6 +11,8 @@ import co.edu.unbosque.tiendafrontend.vo.UsuarioVO;
 
 public class UsuarioController {
 private ArrayList<UsuarioVO> listaUsuarios;
+private UsuarioVO consultarUsuario;
+private boolean anadioUsuario = false;
 	
 	private UsuarioDAO objEstDao;
 	
@@ -26,7 +28,39 @@ private ArrayList<UsuarioVO> listaUsuarios;
         	listaUsuarios = new ArrayList<UsuarioVO>();
         }
 	}
+	
+	public void anadirUsuario(UsuarioVO user) {
+		objEstDao = new UsuarioDAO();
+		String json = objEstDao.añadirUsuario(user);
+		if(json  != null) {
+			anadioUsuario = true;
+        }else {
+        	anadioUsuario = false;
+        }
+	}
+	
+	public void consultaUsuario(long cedula) {
+		objEstDao = new UsuarioDAO();
+		String json = objEstDao.consultarUsuario(cedula);
+		if(json  != null) {
+            Type listType = new TypeToken<UsuarioVO>(){}.getType();
+            Gson gson = new Gson();
+            consultarUsuario = gson.fromJson(json, listType);
+        }else {
+        	consultarUsuario = new UsuarioVO();
+        }
+	}
 
+	
+
+	public boolean isAnadioUsuario() {
+		return anadioUsuario;
+	}
+
+	public void setAnadioUsuario(boolean anadioUsuario) {
+		this.anadioUsuario = anadioUsuario;
+	}
+	
 
 	public ArrayList<UsuarioVO> getListaUsuarios() {
 		return listaUsuarios;
