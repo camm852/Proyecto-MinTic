@@ -26,7 +26,29 @@
                         			<%
                         		}
                         	}
-                        	%>
+	 if(request.getAttribute("consultarEstudiante")!= null){
+		 UsuarioVO usuario = (UsuarioVO)request.getAttribute("consultarEstudiante");
+		 %>
+			<table class="table table-striped">
+			<th>
+				<td scope="col">Nombre</td>
+				<td scope="col">Email</td>
+				<td scope="col">Usuario</td>
+				<td scope="col">contraseña</td>
+			</th>
+			<% 
+				
+			%>
+			<tr>
+				<td></td>
+				<td><%= usuario.getNombre_usuario() %></td>		
+				<td><%= usuario.getEmail_usuario() %></td>		
+				<td><%= usuario.getUsuario() %></td>		
+				<td><%= usuario.getPassword_usuario() %></td>		
+			</tr>
+		<% 
+				
+				} %>
                         	</a>
    </div>
    
@@ -111,7 +133,7 @@
                     </div>
                 </form>
                 
-               
+
             </div>
         </div>
         <div class="crud clients">

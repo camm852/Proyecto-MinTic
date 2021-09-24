@@ -52,7 +52,17 @@ private boolean anadioUsuario = false;
 	}
 
 	
+	
+	public UsuarioVO getconsultarUsuario() {
+		return consultarUsuario;
+	}
 
+
+	public void setconsultarUsuario(UsuarioVO consultarUsuario) {
+		this.consultarUsuario = consultarUsuario;
+	}
+
+	
 	public boolean isAnadioUsuario() {
 		return anadioUsuario;
 	}

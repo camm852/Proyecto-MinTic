@@ -97,6 +97,46 @@ public class UsuarioDAO {
 	        }
 	    }
 	    
+	    
+	    public boolean actualizar_usuario(UsuarioDTO user) {
+	        
+	        try {
+	            System.out.println(user.getCedula_usuario());
+	            Conexion conex= new Conexion();
+	        PreparedStatement sentencia= conex.getConnection().prepareStatement("update tienda.usuarios set email_usuario=?, nombre_usuario=?,password=?, usuario=? where cedula_usuario=?");
+	        sentencia.setString(1, user.getEmail_usuario());
+	        sentencia.setString(2, user.getNombre_usuario());
+	        sentencia.setString(3, user.getPassword_usuario());
+	        sentencia.setString(4, user.getUsuario());
+	        sentencia.setInt(5, user.getCedula_usuario());
+	  
+
+	        sentencia.executeUpdate();
+	        conex.desconectar();
+	        return true;
+	        } catch (Exception e) {
+	            System.out.println("Error: "+e);
+	            return false;
+	        }
+	        
+	    }
+	    
+	    public boolean eliminar_usuario(long cedula) {
+	        try {
+	        	Conexion conex= new Conexion();
+	            PreparedStatement sentencia= conex.getConnection().prepareStatement("delete from tienda.usuarios where cedula_usuario=?");
+	        sentencia.setLong(1, cedula);
+	        
+	        sentencia.executeUpdate();
+	        conex.desconectar();
+	      
+	        return true;
+	        } catch (Exception e) {
+	            System.out.println("Error: "+e);
+	            return false;
+	        }
+	    }
+	    
 	  
 }
 

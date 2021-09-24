@@ -8,7 +8,7 @@ public class ClienteDTO {
 	private String nombre_cliente;
 	private String telefono_cliente;
 	
-	
+	public ClienteDTO(){};
 	
 	public ClienteDTO(int cedula_cliente, String direccion_cliente, String email_cliente, String nombre_cliente,
 			String telefono_cliente) {

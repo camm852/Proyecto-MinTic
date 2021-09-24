@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.edu.unbosque.tiendafrontend.vo.UsuarioVO;
+
 
 
 
@@ -41,9 +43,13 @@ public class consultarUsuarioServlet extends HttpServlet {
 		
 		long cedula = Long.parseLong(request.getParameter("cedulaGestor"));
 		
-		System.out.print("Consulta");
 		UsuarioController objContro = new UsuarioController();
+	
 		objContro.consultaUsuario(cedula);
+		
+		UsuarioVO Estudiante = objContro.getconsultarUsuario();
+		request.setAttribute("consultarEstudiante", Estudiante);
+		request.getRequestDispatcher("control.jsp").forward(request, response);
 			
 	}
 

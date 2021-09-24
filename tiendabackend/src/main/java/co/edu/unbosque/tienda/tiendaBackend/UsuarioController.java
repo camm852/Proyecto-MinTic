@@ -24,7 +24,7 @@ public class UsuarioController {
 	}
 	
 	@RequestMapping("/anadirUsuario")
-	public boolean getWithoutRequestParam(UsuarioDTO userDTO) {
+	public boolean anadirUsuario(UsuarioDTO userDTO) {
 		UsuarioDAO objDAO = new UsuarioDAO();
 		objDAO.insertar_Usuario(userDTO);
 	  return true;
@@ -36,6 +36,20 @@ public class UsuarioController {
 		UsuarioDAO objDAO = new UsuarioDAO();
 		return objDAO.consultarUsuario(cedula);
 	   
+
+	}
+	
+	@RequestMapping("/actualizarUsuario")
+	public boolean actualizarUsuario(UsuarioDTO userDTO) {
+		UsuarioDAO objDAO = new UsuarioDAO();
+		return objDAO.actualizar_usuario(userDTO);
+	   
+	}
+	
+	@RequestMapping("/eliminarUsuario")
+	public boolean eliminarUsuario(long cedula) {
+		UsuarioDAO objDAO = new UsuarioDAO();
+		return objDAO.eliminar_usuario(cedula);
 
 	}
 	
