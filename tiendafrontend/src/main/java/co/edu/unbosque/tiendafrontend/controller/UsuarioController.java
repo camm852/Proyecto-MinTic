@@ -11,7 +11,7 @@ import co.edu.unbosque.tiendafrontend.vo.UsuarioVO;
 
 public class UsuarioController {
 private ArrayList<UsuarioVO> listaUsuarios;
-private UsuarioVO consultarUsuario;
+private UsuarioVO consultarUsuario, usuario;
 private boolean anadioUsuario = false;
 	
 	private UsuarioDAO objEstDao;
@@ -33,9 +33,11 @@ private boolean anadioUsuario = false;
 		objEstDao = new UsuarioDAO();
 		String json = objEstDao.añadirUsuario(user);
 		if(json  != null) {
-			anadioUsuario = true;
+			Type listType = new TypeToken<UsuarioVO>(){}.getType();
+            Gson gson = new Gson();
+			usuario =  gson.fromJson(json, listType);
         }else {
-        	anadioUsuario = false;
+        	usuario = new UsuarioVO();
         }
 	}
 	

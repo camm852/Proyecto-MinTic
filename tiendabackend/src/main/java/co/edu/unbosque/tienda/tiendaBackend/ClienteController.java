@@ -26,7 +26,7 @@ public class ClienteController {
 		
 	}
 	
-	@RequestMapping("/anadirUsuario")
+	@RequestMapping("/anadirCliente")
 	public boolean anadirUsuario(ClienteDTO userDTO) {
 		ClienteDAO objDAO = new ClienteDAO();
 		objDAO.insertar_cliente(userDTO);
@@ -34,7 +34,7 @@ public class ClienteController {
 
 	}
 	
-	@RequestMapping("/consultarUsuario")
+	@RequestMapping("/consultarCliente")
 	public ClienteDTO consultarUsuario(long cedula) {
 		ClienteDAO objDAO = new ClienteDAO();
 		return objDAO.consultar_cliente(cedula);
@@ -42,14 +42,14 @@ public class ClienteController {
 
 	}
 	
-	@RequestMapping("/actualizarUsuario")
+	@RequestMapping("/actualizarCliente")
 	public boolean actualizarUsuario(ClienteDTO userDTO) {
 		ClienteDAO objDAO = new ClienteDAO();
 		return objDAO.actualizar_cliente(userDTO);
 	   
 	}
 	
-	@RequestMapping("/eliminarUsuario")
+	@RequestMapping("/eliminarCliente")
 	public boolean eliminarUsuario(long cedula) {
 		ClienteDAO objDAO = new ClienteDAO();
 		return objDAO.eliminar_cliente(cedula);

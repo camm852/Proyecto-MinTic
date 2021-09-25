@@ -2,6 +2,7 @@ package co.edu.unbosque.tienda.tiendaBackend;
 
 import java.util.ArrayList;
 
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import co.edu.unbosque.tienda.tiendaBackend.DTO.UsuarioDTO;
@@ -24,10 +25,10 @@ public class UsuarioController {
 	}
 	
 	@RequestMapping("/anadirUsuario")
-	public boolean anadirUsuario(UsuarioDTO userDTO) {
+	public UsuarioDTO anadirUsuario(@RequestBody UsuarioDTO userDTO) {
 		UsuarioDAO objDAO = new UsuarioDAO();
-		objDAO.insertar_Usuario(userDTO);
-	  return true;
+		return objDAO.insertar_Usuario(userDTO);
+	   
 
 	}
 	

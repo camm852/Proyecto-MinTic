@@ -2,6 +2,7 @@ package co.edu.unbosquetienda.tiendaBackend.DAO;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -43,7 +44,7 @@ public class UsuarioDAO {
 	 }
 	
 	  
-	    public boolean insertar_Usuario(UsuarioDTO usuario) {	    	 
+	    public UsuarioDTO insertar_Usuario(UsuarioDTO usuario) {	    	 
 	  	  try {
 	  		  Conexion conex= new Conexion();
 	  	   PreparedStatement consulta = conex.getConnection().prepareStatement("insert into tienda.usuarios (cedula_usuario, email_usuario,nombre_usuario,password,usuario ) values(?,?,?,?,?)");
@@ -60,12 +61,13 @@ public class UsuarioDAO {
 	   
 	  	    consulta.close();
 	  	    conex.desconectar();
-	  	    return true;
+
 	  	 
-	  	  } catch (Exception e) {
+	  	  } catch (SQLException e) {
+	  		usuario = null;
 	  	   JOptionPane.showMessageDialog(null, "no se pudo consultar el usuario\n"+e);
 	  	  }
-	  	  return false;
+	  	  return usuario;
 	  	 }
 	    
 	    public UsuarioDTO consultarUsuario(long cedula) {
