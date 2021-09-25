@@ -1,0 +1,24 @@
+@charset "ISO-8859-1";
+
+:root{
+    --main-color: #BFA2DB;
+    --secondary-color-1: #F3F1F5;
+    --secondary-color-2: #F0D9FF;
+    --secondary-color-3: #7F7C82;
+}
+
+.users-form-container form  #nit{
+    margin-left: 170px;
+}
+
+.users-form-container form  #nombre{
+    margin-left: 42px;
+}
+
+.users-form-container form #telefono{
+    margin-left: 65px;
+}
+
+.users-form-container form  #direccion{
+    margin-left: 125px;
+}

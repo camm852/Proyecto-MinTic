@@ -1,0 +1,26 @@
+@charset "ISO-8859-1";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    --main-color: #BFA2DB;
+    --secondary-color-1: #F3F1F5;
+    --secondary-color-2: #F0D9FF;
+    --secondary-color-3: #7F7C82;
+}
+
+
+.users-form-container form #cedula{
+    margin-left:138px
+}
+
+.users-form-container form #direccion{
+    margin-left:37px
+}
