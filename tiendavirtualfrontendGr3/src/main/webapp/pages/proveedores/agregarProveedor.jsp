@@ -35,7 +35,7 @@
                     
                     <div class="button-container">
                         <input class="button-form" type="submit" value="Agregar">
-                        <a href="/<c:out value="${url}"></c:out>/pages/proveedores/proveedores.jsp" class="button-form" >Volver</a>                        
+                        <a href="/pages/proveedores/proveedores.jsp" class="button-form" >Volver</a>                        
                     </div>
                 </form>
             </div>

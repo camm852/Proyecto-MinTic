@@ -10,15 +10,14 @@
 <title>Usuario</title>
 </head>
 <body>          	
-	<c:set var="url" value="tiendavirtualfrontendGr3"></c:set>
 	<c:import url="../../imports/sidebar.jsp"></c:import>
     <div class="crud-container">
         <div class="crud users">
             <div class="selects">
-                <a href="/<c:out value="${url}"></c:out>/pages/usuarios/agregarUsuario.jsp" class="select-crud select-actualizar"><p><i class="fas fa-user-plus"></i><br>Agregar Usuario</p></a>
-                <a href="/<c:out value="${url}"></c:out>/pages/usuarios/actualizarUsuario.jsp" class="select-crud select-actualizar"><p><i class="fas fa-user-cog"></i><br>Actualizar Usuario</p></a>
-                <a href="/<c:out value="${url}"></c:out>/pages/usuarios/consultarUsuario.jsp" class="select-crud select-actualizar"><p><i class="fas fa-search"></i><br>Consultar Usuario</p></a>
-                <a href="/<c:out value="${url}"></c:out>/pages/usuarios/eliminarUsuario.jsp" class="select-crud select-actualizar"><p><i class="fas fa-user-minus"></i><br></b>Eliminar Usuario</p></a>
+                <a href="/pages/usuarios/agregarUsuario.jsp" class="select-crud select-actualizar"><p><i class="fas fa-user-plus"></i><br>Agregar Usuario</p></a>
+				<a href="/pages/usuarios/actualizarUsuario.jsp" class="select-crud select-actualizar"><p><i class="fas fa-user-cog"></i><br>Actualizar Usuario</p></a>
+				<a href="/pages/usuarios/consultarUsuario.jsp" class="select-crud select-actualizar"><p><i class="fas fa-search"></i><br>Consultar Usuario</p></a>
+				<a href="/pages/usuarios/eliminarUsuario.jsp" class="select-crud select-actualizar"><p><i class="fas fa-user-minus"></i><br></b>Eliminar Usuario</p></a>
             </div>
         </div> 
 	</div>

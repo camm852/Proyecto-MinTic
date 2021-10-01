@@ -33,7 +33,7 @@
                     <input class="input-form" id="correo" type="email" name="emailGestor" autocomplete="off">
                     <div class="button-container">
                         <input class="button-form" type="submit" value="Agregar" >
-                        <a href="/<c:out value="${url}"></c:out>/pages/clientes/clientes.jsp" class="button-form">Volver</a>                     
+                        <a href="/pages/clientes/clientes.jsp" class="button-form">Volver</a>                     
                     </div>
                 </form>
             </div>

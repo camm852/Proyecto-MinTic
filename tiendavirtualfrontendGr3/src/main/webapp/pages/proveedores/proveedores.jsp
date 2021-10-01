@@ -16,10 +16,10 @@
     <div class="crud-container">
         <div class="crud proveedores">
             <div class="selects">
-                <a href="/<c:out value="${url}"></c:out>/pages/proveedores/agregarProveedor.jsp" class="select-crud"><p><i class="fas fa-user-plus"></i><br>Agregar<br>Proveedor</p></a>
-                <a href="/<c:out value="${url}"></c:out>/pages/proveedores/actualizarProveedor.jsp" class="select-crud"><p><i class="fas fa-user-cog"></i><br>Actualizar Proveedor</p></a>
-                <a href="/<c:out value="${url}"></c:out>/pages/proveedores/consultarProveedor.jsp" class="select-crud"><p><i class="fas fa-search"></i><br>Consultar Proveedor</p></a>
-                <a href="/<c:out value="${url}"></c:out>/pages/proveedores/eliminarProveedor.jsp" class="select-crud"><p><i class="fas fa-user-minus"></i><br></b>Eliminar<br>Proveedor</p></a>
+                <a href="/pages/proveedores/agregarProveedor.jsp" class="select-crud"><p><i class="fas fa-user-plus"></i><br>Agregar<br>Proveedor</p></a>
+                <a href="/pages/proveedores/actualizarProveedor.jsp" class="select-crud"><p><i class="fas fa-user-cog"></i><br>Actualizar Proveedor</p></a>
+                <a href="/pages/proveedores/consultarProveedor.jsp" class="select-crud"><p><i class="fas fa-search"></i><br>Consultar Proveedor</p></a>
+                <a href="/pages/proveedores/eliminarProveedor.jsp" class="select-crud"><p><i class="fas fa-user-minus"></i><br></b>Eliminar<br>Proveedor</p></a>
             </div>
     	</div> 
 	</div>
