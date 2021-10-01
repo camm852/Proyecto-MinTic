@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="co.edu.unbosque.tiendavirtualGr3.tiendavirtualfrontendGr3.vo.*" %>
+<%@ page import="co.edu.unbosque.tiendavirtualGr3.tiendavirtualfrontendGr3.controller.*" %>
 <%@ page import="java.util.*" %>
 
 <!DOCTYPE html>
@@ -25,8 +27,13 @@
                 <a class="button-form" href="#">Cancelar</a>
             </div>
         </form>
+        
         <div class="incorrect-container">
-            
+            <c:choose>
+			<c:when test="${usuario.rol == null}">
+				<em>${error}</em>
+			</c:when>
+			</c:choose>	
         </div>
     </div>
 </body>

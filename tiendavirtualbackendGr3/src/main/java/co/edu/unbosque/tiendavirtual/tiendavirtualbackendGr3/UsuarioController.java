@@ -14,9 +14,9 @@ import co.edu.unbosquetiendavirtual.tiendavirtualbackendGr3.DAO.UsuarioDAO;
 public class UsuarioController {
 		
 	@PostMapping("/login")
-	public Usuario auth(String nombre, String contrasena) {
+	public Usuario auth(@RequestBody Usuario usuario) {
 		UsuarioDAO dao =  new UsuarioDAO();
-		return dao.consultarUsuario(nombre, contrasena);
+		return dao.consultarUsuarioLogin(usuario);
 	}
 	
 	@RequestMapping("/listarUsuarios")

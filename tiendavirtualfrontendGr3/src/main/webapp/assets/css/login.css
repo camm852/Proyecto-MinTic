@@ -97,5 +97,11 @@ input[type="submit"]{
     font-weight: 500;
 }
 
+.incorrect-container{
+	margin-top: 25px;
+	color: #fff;
+	
+}
+
 
 

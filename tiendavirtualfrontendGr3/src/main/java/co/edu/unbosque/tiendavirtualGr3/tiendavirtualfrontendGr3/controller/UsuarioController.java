@@ -51,14 +51,18 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/login")
-	public String loginUsuario(Model model, String nombreU,String contrasenaU) {
+	public String loginUsuario(Model model, UsuarioVO usuario) {
 		
 		objDao = new UsuarioDAO();
-		
-		model.addAttribute("usuario",objDao.consultarUsuario(nombreU,contrasenaU));
-		System.out.println("pasaController");
-		
-		return "control";
+		UsuarioVO usr = objDao.login(usuario);
+		if(usr!=null) {
+			model.addAttribute("usuario",usr);
+			return "/imports/sidebar";
+		}else {
+			model.addAttribute("error","Usuario o contraseña invalidos");
+			System.out.println("No encontro");
+		}
+		return "index";
 	}
 	
 	

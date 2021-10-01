@@ -17,7 +17,7 @@ import reactor.core.publisher.Mono;
 @Service
 public class UsuarioDAO {
 	
-	private static final String URL = "http://localhost:8080";
+	private static final String URL = "http://localhost:8081";
 	
 	@Autowired
 	private WebClient webClient;
@@ -45,18 +45,21 @@ public class UsuarioDAO {
 		return null;
 	}
 	
-	public UsuarioVO consultarUsuario(String nombreU, String contrasenaU){
+	public UsuarioVO login(UsuarioVO usr){
 		try {
-			webClient = WebClient.create(URL);
-			UsuarioVO objUsuario=null;
-			Mono<UsuarioVO> response = webClient.post().uri(URL+"/login").body(Mono.just(nombreU),UsuarioVO.class).retrieve().bodyToMono(UsuarioVO.class);
+			WebClient webClient =  WebClient.create(URL);
 			
+			UsuarioVO objUsuario = null;
+			
+			Mono<UsuarioVO> response = webClient.post().uri(URL+"/login").
+			body(Mono.just(usr),UsuarioVO.class).retrieve().bodyToMono(UsuarioVO.class);
 			objUsuario = response.block();
-			
+			System.out.println("Entro al dao");
 			return objUsuario;
 		} catch (WebClientResponseException e) {
 			e.getMessage();
 			System.out.println("---->" + e.getMessage());
+			System.out.println("Fallo el dao");
 			return null;
 		}
 			

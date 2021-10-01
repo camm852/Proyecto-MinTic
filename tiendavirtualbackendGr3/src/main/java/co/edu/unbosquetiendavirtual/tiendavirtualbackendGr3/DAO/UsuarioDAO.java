@@ -46,18 +46,19 @@ public class UsuarioDAO {
 		  return misUsuarios;
 		 }
 
-	public Usuario consultarUsuario(String nombreU, String contrasenaU) {
+	public Usuario consultarUsuarioLogin(Usuario usr) {
 		Conexion conn =  new Conexion();
 		Usuario usuarioEnc = null;
 		PreparedStatement ps = null;
 		Usuario usuarioRet = null;
+		ResultSet rs =null;
 		
 		String sql = "SELECT * FROM tienda.usuarios WHERE nombre_usuario like ?";
 		
 		try {
 			ps =  conn.getConnection().prepareStatement(sql);
-			ps.setString(1, nombreU);
-			ResultSet rs =  ps.executeQuery();
+			ps.setString(1, usr.getNombre());
+			rs =  ps.executeQuery();
 			while(rs.next()) {
 				Integer cedula = rs.getInt(1);
 				String email = rs.getString(2);
@@ -67,13 +68,23 @@ public class UsuarioDAO {
 				usuarioEnc =  new Usuario(cedula,email,nombre, psswrd, rol);
 			}
 			
-			if(usuarioEnc.getContrasena().equals(contrasenaU)) {
+			if(usuarioEnc.getContrasena().equals(usr.getContrasena())) {
 				usuarioRet = usuarioEnc;
 			}
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			conn.desconectar();
+			try {
+				ps.close();
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
 		
 		return usuarioRet;
