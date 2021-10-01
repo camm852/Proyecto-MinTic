@@ -4,17 +4,19 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" href="../assets/css/usuarios.css">
-<link rel="stylesheet" href="../assets/css/clientes.css">
-<link rel="stylesheet" href="../assets/fontawesome/css/all.css">
+<link rel="stylesheet" href="../../assets/css/usuarios.css">
+<link rel="stylesheet" href="../../assets/css/clientes.css">
+<link rel="stylesheet" href="../../assets/css/admin.css">
+<link rel="stylesheet" href="../../assets/fontawesome/css/all.css">
 <title>Clientes</title>
 </head>
-<body>          	
-	<c:import url="../imports/sidebar.jsp"></c:import>
+<body>     
+	<c:set var="url" value="tiendavirtualfrontendGr3"></c:set>         	
+	<c:import url="../../imports/sidebar.jsp"></c:import>
     <div class="crud-container">
-        <div class="crud users">
+        <div class="crud clients">
             <div class="users-form-container clients-form-container">
-                <form class="form" action="" method="post">
+                <form class="form-agregar" action="" method="post">
                     <label class="label-form" for="cedula"><i class="fas far fa-id-card"></i>Cédula</label>
                     <input class="input-form" id="cedula" type="text" name="cedulaGestor" autocomplete="off">
                     
@@ -30,10 +32,8 @@
                     <label class="label-form" for="correo"><i class="fas fa-at"></i>Correo Electrónico</label>
                     <input class="input-form" id="correo" type="email" name="emailGestor" autocomplete="off">
                     <div class="button-container">
-                        <input class="button-form" type="submit" value="Agregar" onclick="form.action='';">                     
-     					<input class="button-form" type="submit" value="Consultar" onclick="form.action='';">
-     					<input class="button-form" type="submit" value="Actualizar" onclick="form.action='';">                     
-     					<input class="button-form" type="submit" value="Eliminar" onclick="form.action='';">
+                        <input class="button-form" type="submit" value="Agregar" >
+                        <a href="/<c:out value="${url}"></c:out>/pages/clientes/clientes.jsp" class="button-form">Volver</a>                     
                     </div>
                 </form>
             </div>

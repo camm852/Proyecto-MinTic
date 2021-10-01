@@ -21,19 +21,60 @@
     margin-left: 230px;
 }
 
+/* botones para el crud*/
+
+.crud-container .selects{
+    position: absolute;
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 15%;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.crud-container .selects .select-crud{
+    width: 200px;
+    height: 200px;
+    background-color: var(--main-color);
+    margin-right: 25px;
+    border-radius: 20px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.crud-container .selects .select-crud p{
+    display: block;
+    margin-top: 50px;
+    
+}
+
+.crud-container .selects .select-crud p i{
+    display: block;
+    margin-top: 10px;
+}
+
+/*formularios*/
+
+
 .users-form-container{
-    position: relative;
     width: 100vw;
     height: 100vh;
 }
 
-.users-form-container form {
+
+
+.users-form-container .form-agregar{
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
     width: 900px;
-    margin: 10%;
+    margin-top: 10%;
+    margin-left: 25vw;
 }
+
 
 
 .users-form-container .input-form{
@@ -51,7 +92,7 @@
 }
 
 
-.fas{
+.users-form-container .fas{
     font-size: 30px;
     margin-right: 10px;
 }
@@ -99,4 +140,12 @@
 
 .button-form:hover{
     background-color: #9e80ba;
+}
+
+
+@media screen and (max-width: 1400px) {
+    
+    .users-form-container .form-agregar{
+        margin-left: 10vw;
+    }
 }

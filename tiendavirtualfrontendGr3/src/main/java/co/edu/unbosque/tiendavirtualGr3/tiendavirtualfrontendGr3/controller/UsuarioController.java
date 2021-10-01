@@ -73,7 +73,7 @@ public class UsuarioController {
 		
 		return "crearUsuario";
 
-			}
+	}
 
 	@GetMapping("/crearUsuario")
 	public String usuario(Model model) {

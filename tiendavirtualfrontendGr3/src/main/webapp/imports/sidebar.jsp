@@ -19,19 +19,19 @@
         </div>
         <ul class="nav_list">
             <li class="li-container">
-                <a class="a-container" id="users-a" href="/<c:out value="${url}"></c:out>/pages/usuarios.jsp">
+                <a class="a-container" id="users-a" href="/<c:out value="${url}"></c:out>/pages/usuarios/usuarios.jsp">
                     <i class="fas fa-users"></i>
                     <span class="links_name">Usuarios</span>
                 </a>
             </li>
             <li class="li-container">
-                <a class="a-container" id="clients-a" href="/<c:out value="${url}"></c:out>/pages/clientes.jsp">
+                <a class="a-container" id="clients-a" href="/<c:out value="${url}"></c:out>/pages/clientes/clientes.jsp">
                     <i class="fas fa-user-tie"></i>
                     <span class="links_name">Clientes</span>
                 </a>
             </li>
             <li>
-                <a class="a-container"  href="/<c:out value="${url}"></c:out>/pages/proveedores.jsp">
+                <a class="a-container"  href="/<c:out value="${url}"></c:out>/pages/proveedores/proveedores.jsp">
                     <i class="fas fa-truck"></i>
                     <span class="links_name">Proveedores</span>
                 </a>

@@ -82,8 +82,8 @@ public class UsuarioDAO {
 	public Usuario agregarUsuario(Usuario usuario) {
 		try {
 	  		  Conexion conex= new Conexion();
-	  	   PreparedStatement consulta = conex.getConnection().prepareStatement("insert into tienda.usuarios (cedula_usuario, email_usuario,nombre_usuario,password,usuario ) values(?,?,?,?,?)");
-	  	   System.out.println("Se hizo conexion");
+		  	   PreparedStatement consulta = conex.getConnection().prepareStatement("insert into tienda.usuarios (cedula_usuario, email_usuario,nombre_usuario,password,usuario ) values(?,?,?,?,?)");
+		  	   System.out.println("Se hizo conexion");
 	  	 
 	  		   
 	  		   consulta.setInt(1, usuario.getCedula());

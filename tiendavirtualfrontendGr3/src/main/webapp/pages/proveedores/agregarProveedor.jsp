@@ -4,17 +4,19 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" href="../assets/css/usuarios.css">
-<link rel="stylesheet" href="../assets/css/proveedores.css">
-<link rel="stylesheet" href="../assets/fontawesome/css/all.css">
+<link rel="stylesheet" href="../../assets/css/usuarios.css">
+<link rel="stylesheet" href="../../assets/css/proveedores.css">
+<link rel="stylesheet" href="../../assets/css/admin.css">
+<link rel="stylesheet" href="../../assets/fontawesome/css/all.css">
 <title>Clientes</title>
 </head>
-<body>          	
-	<c:import url="../imports/sidebar.jsp"></c:import>
+<body>       
+	<c:set var="url" value="tiendavirtualfrontendGr3"></c:set>    	
+	<c:import url="../../imports/sidebar.jsp"></c:import>
     <div class="crud-container">
-        <div class="crud users">
+        <div class="crud proveedores">
             <div class="users-form-container">
-                <form class="form" action="" method="post">
+                <form class="form-agregar" action="" method="post">
                     <label class="label-form" for="nit"><i class="fas far fa-id-card"></i>NIT</label>
                     <input class="input-form" id="nit" type="text" name="cedulaGestor" autocomplete="off">
                     
@@ -32,10 +34,8 @@
 
                     
                     <div class="button-container">
-                        <input class="button-form" type="submit" value="Agregar" onclick="form.action='';">                     
-     					<input class="button-form" type="submit" value="Consultar" onclick="form.action='';">
-     					<input class="button-form" type="submit" value="Actualizar" onclick="form.action='';">                     
-     					<input class="button-form" type="submit" value="Eliminar" onclick="form.action='';">
+                        <input class="button-form" type="submit" value="Agregar">
+                        <a href="/<c:out value="${url}"></c:out>/pages/proveedores/proveedores.jsp" class="button-form" >Volver</a>                        
                     </div>
                 </form>
             </div>
