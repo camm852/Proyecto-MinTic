@@ -75,7 +75,7 @@ public class UsuarioController {
 		consultarUsuarios();
 		model.addAttribute("usuarios", getListaUsuarios());
 		
-		return "crearUsuario";
+		return "/pages/usuarios/agregarUsuario";
 
 	}
 
@@ -84,7 +84,7 @@ public class UsuarioController {
 		consultarUsuarios();
 		model.addAttribute("usuarios", getListaUsuarios());
 		//model.addAttribute("usuarios", clienteTienda.getUsuarios());
-		return "crearUsuario";
+		return "/pages/usuarios/agregarUsuario";
 	}
 	
 	@PostMapping("/actualizarUsuario")
@@ -96,7 +96,7 @@ public class UsuarioController {
 		consultarUsuarios();
 		model.addAttribute("usuarios", getListaUsuarios());
 		
-		return "actualizarUsuario";
+		return "/pages/usuarios/actualizarUsuario";
 
 			}
 
@@ -105,7 +105,7 @@ public class UsuarioController {
 		//consultarUsuarios();
 		//model.addAttribute("usuarios", getListaUsuarios());
 		//model.addAttribute("usuarios", clienteTienda.getUsuarios());
-		return "actualizarUsuario";
+		return "/pages/usuarios/actualizarUsuario";
 	}
 	
 	
@@ -118,7 +118,7 @@ public class UsuarioController {
 		consultarUsuarios();
 		model.addAttribute("usuarios", getListaUsuarios());
 		
-		return "eliminarUsuario";
+		return "/pages/usuarios/eliminarUsuario";
 
 			}
 
@@ -127,7 +127,7 @@ public class UsuarioController {
 		consultarUsuarios();
 		model.addAttribute("usuarios", getListaUsuarios());
 		//model.addAttribute("usuarios", clienteTienda.getUsuarios());
-		return "eliminarUsuario";
+		return "/pages/usuarios/eliminarUsuario";
 	}
 	
 	

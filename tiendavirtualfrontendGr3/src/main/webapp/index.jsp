@@ -19,9 +19,9 @@
         <h2>Bienvenidos a la Tienda Genérica</h2>
         <form class="form" action="/login" method="post">
             <label class="label-form usuario-label" for="usuario"><i class="fas fa-user-tie"></i>Usuario</label>
-            <input class="input-form" id="nombre" value="${usuario.nombre}" type="text" name="nombreU" autocomplete="off">
+            <input class="input-form" id="nombre" value="${usuario.nombre}" type="text" name="nombre" autocomplete="off">
             <label class="label-form" for="password"><i class="fas fa-lock"></i>Contraseña</label>
-            <input class="input-form" id="contrasena" value="${usuario.contrasena}" type="password" name="contrasenaU">
+            <input class="input-form" id="contrasena" value="${usuario.contrasena}" type="password" name="contrasena">
             <div class="button-container">
                 <input type="submit" class="button-form" value="Entrar">
                 <a class="button-form" href="#">Cancelar</a>

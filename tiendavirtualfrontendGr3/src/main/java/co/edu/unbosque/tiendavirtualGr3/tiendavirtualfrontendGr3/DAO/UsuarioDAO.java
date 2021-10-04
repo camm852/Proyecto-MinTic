@@ -17,7 +17,7 @@ import reactor.core.publisher.Mono;
 @Service
 public class UsuarioDAO {
 	
-	private static final String URL = "http://localhost:8081";
+	private static final String URL = "http://localhost:8080";
 	
 	@Autowired
 	private WebClient webClient;
@@ -71,9 +71,10 @@ public class UsuarioDAO {
 			WebClient webClient = WebClient.create(URL);
 			UsuarioVO objUsuario = null;
 			System.out.println("llamando url");
+			System.out.println("envio"+usuarioDto);
 			Mono<UsuarioVO> response = webClient.post().uri(URL + "/agregarUsuario")
 					.body(Mono.just(usuarioDto), UsuarioVO.class).retrieve().bodyToMono(UsuarioVO.class);
-
+			System.out.println(response);
 			objUsuario = response.block();
 			System.out.println("retornando");
 			return objUsuario;

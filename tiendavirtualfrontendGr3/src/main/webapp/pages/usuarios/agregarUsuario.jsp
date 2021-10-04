@@ -20,19 +20,19 @@
             <div class="users-form-container">
                 <form class="form-agregar" action="/crearUsuario" method="post">
                     <label class="label-form" for="cedula"><i class="fas far fa-id-card"></i>Cédula</label>
-                    <input class="input-form" id="cedula" type="text" name="cedulaGestor" autocomplete="off" value="${usuario.cedula}">
+                    <input class="input-form" id="cedula" type="text" name="cedula" autocomplete="off" value="${usuario.cedula}">
                     
                     <label class="label-form" for="usuario"><i class="fas fa-user-alt"></i>Usuario</label>
-                    <input class="input-form" id="usuario" type="text" name="usuarioGestor" autocomplete="off" value="${usuario.rol}">
+                    <input class="input-form" id="usuario" type="text" name="rol" autocomplete="off" value="${usuario.rol}">
 
                     <label class="label-form" for="nombre"><i class="fas fa-user-tag"></i>Nombre Completo</label>
-                    <input class="input-form" id="nombre" type="text" name="nombreGestor" autocomplete="off" value="${usuario.nombre}">
+                    <input class="input-form" id="nombre" type="text" name="nombre" autocomplete="off" value="${usuario.nombre}">
 
                     <label class="label-form" for="password"><i class="fas fa-lock"></i>Contraseña</label>
-                    <input class="input-form" id="password" type="password" name="passwordGestor" value="${usuario.contrasena}">
+                    <input class="input-form" id="password" type="password" name="contrasena" value="${usuario.contrasena}">
 
                     <label class="label-form" for="correo"><i class="fas fa-at"></i>Correo Electrónico</label>
-                    <input class="input-form" id="correo" type="email" name="emailGestor" autocomplete="off" value="${usuario.email}">
+                    <input class="input-form" id="correo" type="email" name="email" autocomplete="off" value="${usuario.email}">
                     <div class="button-container">
                         <input class="button-form" type="submit" value="Agregar"> 
                         <a href="/pages/usuarios/usuarios.jsp" class="button-form" >Volver</a>               

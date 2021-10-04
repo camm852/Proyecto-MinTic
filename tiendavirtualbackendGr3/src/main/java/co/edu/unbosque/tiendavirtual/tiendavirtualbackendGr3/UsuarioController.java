@@ -27,6 +27,7 @@ public class UsuarioController {
 	
 	@PostMapping("/agregarUsuario")
 	public Usuario agregarUsuario(@RequestBody Usuario usuario) {
+		System.out.println("Agregando usuario - backend");
 		UsuarioDAO dao = new UsuarioDAO();
 		return dao.agregarUsuario(usuario);
 	}
