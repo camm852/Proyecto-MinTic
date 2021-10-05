@@ -47,6 +47,7 @@ public class UsuarioDAO {
 	
 	public UsuarioVO login(UsuarioVO usr){
 		try {
+			System.out.println("hola");
 			WebClient webClient =  WebClient.create(URL);
 			
 			UsuarioVO objUsuario = null;
@@ -54,12 +55,10 @@ public class UsuarioDAO {
 			Mono<UsuarioVO> response = webClient.post().uri(URL+"/login").
 			body(Mono.just(usr),UsuarioVO.class).retrieve().bodyToMono(UsuarioVO.class);
 			objUsuario = response.block();
-			System.out.println("Entro al dao");
 			return objUsuario;
 		} catch (WebClientResponseException e) {
 			e.getMessage();
 			System.out.println("---->" + e.getMessage());
-			System.out.println("Fallo el dao");
 			return null;
 		}
 			

@@ -1,6 +1,6 @@
-package co.edu.unbosque.tiendavirtual.tiendavirtualbackendGr3.DTO;
+package co.edu.unbosque.tiendavirtualGr3.tiendavirtualfrontendGr3.vo;
 
-public class Cliente {
+public class ClienteVO {
 	
 	private long cedula;
 	
@@ -11,10 +11,12 @@ public class Cliente {
 	private String nombre;
 	
 	private String telefono;
+	
+	public ClienteVO() {
+		
+	}
 
-	
-	
-	public Cliente(long cedula, String direccion, String email, String nombre, String telefono) {
+	public ClienteVO(long cedula, String direccion, String email, String nombre, String telefono) {
 		super();
 		this.cedula = cedula;
 		this.direccion = direccion;
@@ -22,7 +24,7 @@ public class Cliente {
 		this.nombre = nombre;
 		this.telefono = telefono;
 	}
-
+	
 	public long getCedula() {
 		return cedula;
 	}
@@ -63,13 +65,15 @@ public class Cliente {
 		this.telefono = telefono;
 	}
 
+	
+
 	@Override
 	public String toString() {
-		return "Cliente [cedula=" + cedula + ", direccion=" + direccion + ", email=" + email + ", nombre=" + nombre
+		return "ClienteVO [cedula=" + cedula + ", direccion=" + direccion + ", email=" + email + ", nombre=" + nombre
 				+ ", telefono=" + telefono + "]";
 	}
+
 	
 	
-
-
+	
 }

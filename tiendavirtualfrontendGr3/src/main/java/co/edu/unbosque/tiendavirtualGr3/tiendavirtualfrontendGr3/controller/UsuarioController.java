@@ -60,7 +60,6 @@ public class UsuarioController {
 			return "/imports/sidebar";
 		}else {
 			model.addAttribute("error","Usuario o contraseña invalidos");
-			System.out.println("No encontro");
 		}
 		return "index";
 	}

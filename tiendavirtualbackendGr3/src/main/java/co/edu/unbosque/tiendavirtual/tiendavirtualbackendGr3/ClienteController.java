@@ -23,22 +23,22 @@ public class ClienteController {
 	}
 	
 	@PostMapping("/agregarCliente")
-	public Cliente agregarUsuario(@RequestBody Cliente clienteDTO) {
+	public Cliente agregarCliente(@RequestBody Cliente clienteDTO) {
 		ClienteDAO dao = new ClienteDAO();
 		return dao.agregarCliente(clienteDTO);
 	}
 	
-	@RequestMapping("/actualizarCliente")
-	public Cliente actualizarUsuario(@RequestBody Cliente clienteDTO) {
+	@PostMapping("/actualizarCliente")
+	public Cliente actualizarCliente(@RequestBody Cliente clienteDTO) {
 		ClienteDAO objDAO = new ClienteDAO();
-		return objDAO.actualizar_cliente(clienteDTO);
+		return objDAO.actualizarCliente(clienteDTO);
 	   
 	}
 	
-	@RequestMapping("/eliminarCliente")
-	public Cliente eliminarUsuario(@RequestBody Cliente clienteDTO) {
+	@PostMapping("/eliminarCliente")
+	public Cliente eliminarCliente(@RequestBody Cliente clienteDTO) {
 		ClienteDAO objDAO = new ClienteDAO();
-		return objDAO.eliminar_usuario(clienteDTO);
+		return objDAO.eliminarCliente(clienteDTO);
 
 	}
 

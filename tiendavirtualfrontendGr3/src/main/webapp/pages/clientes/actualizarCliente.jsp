@@ -21,7 +21,7 @@
     <div class="crud-container">
         <div class="crud clients">
             <div class="users-form-container clients-form-container">
-                <form class="form-agregar" action="/crearCliente" method="post">
+                <form class="form-agregar" action="/actualizarCliente" method="post">
                     <label class="label-form" for="cedula"><i class="fas far fa-id-card"></i>Cédula</label>
                     <input class="input-form" id="cedula" type="text" name="cedula" autocomplete="off" value="${cliente.cedula}">
                     
@@ -37,7 +37,7 @@
                     <label class="label-form" for="correo"><i class="fas fa-at"></i>Correo Electrónico</label>
                     <input class="input-form" id="correo" type="email" name="email" autocomplete="off" value="${cliente.email}">
                     <div class="button-container">
-                        <input class="button-form" type="submit" value="Agregar" >
+                        <input class="button-form" type="submit" value="Actualizar" >
                         <a href="/pages/clientes/clientes.jsp" class="button-form">Volver</a>                     
                     </div>
                 </form>

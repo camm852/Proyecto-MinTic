@@ -7,6 +7,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Last-Modified" content="0">
+<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+<meta http-equiv="Pragma" content="no-cache">
 <link rel="stylesheet" href="../../assets/css/usuarios.css">
 <link rel="stylesheet" href="../../assets/css/admin.css">
 <link rel="stylesheet" href="../../assets/fontawesome/css/all.css">
@@ -34,7 +38,7 @@
                     <label class="label-form" for="correo"><i class="fas fa-at"></i>Correo Electrónico</label>
                     <input class="input-form" id="correo" type="email" name="email" autocomplete="off" value="${usuario.email}">
                     <div class="button-container">
-                        <input class="button-form" type="submit" value="Agregar"> 
+                        <input class="button-form" type="submit" value="Agregar"  onclick="location.reload()"> 
                         <a href="/pages/usuarios/usuarios.jsp" class="button-form" >Volver</a>               
                     </div>
                 </form>

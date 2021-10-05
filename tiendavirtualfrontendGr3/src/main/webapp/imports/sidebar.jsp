@@ -4,6 +4,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<meta http-equiv="Last-Modified" content="0">
+<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+<meta http-equiv="Pragma" content="no-cache">
 <title></title>
 <link rel="stylesheet" href="../assets/css/admin.css">
 <link rel="stylesheet" href="../assets/fontawesome/css/all.css">
@@ -30,25 +33,25 @@
                 </a>
             </li>
             <li>
-                <a class="a-container"  href="/pages/proveedores/proveedores.jsp">
+                <a class="a-container" id="proveedores-a" href="/pages/proveedores/proveedores.jsp">
                     <i class="fas fa-truck"></i>
                     <span class="links_name">Proveedores</span>
                 </a>
             </li>
             <li class="li-container">
-                <a class="a-container" href="#">
+                <a class="a-container" id="productos-a" href="#">
                     <i class="fas fa-shopping-bag"></i>
                     <span class="links_name">Productos</span>
                 </a>
             </li>
             <li class="li-container">
-                <a class="a-container" href="#">
+                <a class="a-container" id="ventas-a" href="#">
                     <i class="fas fa-coins"></i>
                     <span class="links_name">Ventas</span>
                 </a>
             </li>
             <li class="li-container">
-                <a class="a-container" href="#">
+                <a class="a-container" id="reportes-a" href="#">
                     <i class="fas fa-address-book"></i>
                     <span class="links_name">Reportes</span>
                 </a>

@@ -4,6 +4,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<meta http-equiv="Last-Modified" content="0">
+<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+<meta http-equiv="Pragma" content="no-cache">
 <link rel="stylesheet" href="../../assets/css/usuarios.css">
 <link rel="stylesheet" href="../../assets/css/admin.css">
 <link rel="stylesheet" href="../../assets/fontawesome/css/all.css">
