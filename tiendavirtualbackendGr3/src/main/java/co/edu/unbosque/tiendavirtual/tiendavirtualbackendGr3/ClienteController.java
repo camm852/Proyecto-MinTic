@@ -31,14 +31,14 @@ public class ClienteController {
 	@PostMapping("/actualizarCliente")
 	public Cliente actualizarCliente(@RequestBody Cliente clienteDTO) {
 		ClienteDAO objDAO = new ClienteDAO();
-		return objDAO.actualizarCliente(clienteDTO);
+		return objDAO.actualizar_cliente(clienteDTO);
 	   
 	}
 	
 	@PostMapping("/eliminarCliente")
 	public Cliente eliminarCliente(@RequestBody Cliente clienteDTO) {
 		ClienteDAO objDAO = new ClienteDAO();
-		return objDAO.eliminarCliente(clienteDTO);
+		return objDAO.eliminar_cliente(clienteDTO);
 
 	}
 
