@@ -69,8 +69,6 @@ public class UsuarioDAO {
 		try {
 			WebClient webClient = WebClient.create(URL);
 			UsuarioVO objUsuario = null;
-			System.out.println("llamando url");
-			System.out.println("envio"+usuarioDto);
 			Mono<UsuarioVO> response = webClient.post().uri(URL + "/agregarUsuario")
 					.body(Mono.just(usuarioDto), UsuarioVO.class).retrieve().bodyToMono(UsuarioVO.class);
 			System.out.println(response);

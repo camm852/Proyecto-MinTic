@@ -22,7 +22,7 @@
     <div class="crud-container">
         <div class="crud proveedores">
             <div class="users-form-container">
-                <form class="form-agregar" action="/agregarProveedor" method="post">
+                <form class="form-agregar" action="/actualizarProveedor" method="post">
                     <label class="label-form" for="nit"><i class="fas far fa-id-card"></i>NIT</label>
                     <input class="input-form" id="nit" type="text" name="nit" autocomplete="off" value="${proveedor.nit}">
                     
@@ -40,7 +40,7 @@
 
                     
                     <div class="button-container">
-                        <input class="button-form" type="submit" value="Agregar">
+                        <input class="button-form" type="submit" value="Actualizar">
                         <a href="/pages/proveedores/proveedores.jsp" class="button-form" >Volver</a>                        
                     </div>
                 </form>

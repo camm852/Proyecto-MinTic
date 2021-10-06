@@ -24,7 +24,7 @@ public class ClienteDAO {
 					.body(Mono.just(clienteDto), ClienteVO.class).retrieve().bodyToMono(ClienteVO.class);
 			objCliente=response.block();
 			return objCliente;
-		} catch (Exception e) {
+		} catch (WebClientResponseException e) {
 			e.getMessage();
 			System.out.println("---->" + e.getMessage());
 			return null;
