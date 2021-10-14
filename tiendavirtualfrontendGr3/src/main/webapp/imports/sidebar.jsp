@@ -51,7 +51,7 @@
                 </a>
             </li>
             <li class="li-container">
-                <a class="a-container" id="reportes-a" href="#">
+                <a class="a-container" id="reportes-a" href="/pages/reportes/consultas.jsp">
                     <i class="fas fa-address-book"></i>
                     <span class="links_name">Reportes</span>
                 </a>

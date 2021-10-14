@@ -101,7 +101,7 @@ public class ClienteDAO {
 	    public Cliente eliminar_cliente(Cliente cliente) {
 	        try {
 	        	Conexion conex= new Conexion();
-	            PreparedStatement sentencia= conex.getConnection().prepareStatement("delete from tienda.clientes where cedula_clinete=?");
+	            PreparedStatement sentencia= conex.getConnection().prepareStatement("delete from tienda.clientes where cedula_cliente=?");
 	        sentencia.setLong(1, cliente.getCedula());
 	        
 	        sentencia.executeUpdate();

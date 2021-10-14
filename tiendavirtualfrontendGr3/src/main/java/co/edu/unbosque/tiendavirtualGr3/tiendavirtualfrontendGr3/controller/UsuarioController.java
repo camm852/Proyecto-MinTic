@@ -64,6 +64,24 @@ public class UsuarioController {
 		return "index";
 	}
 	
+	@PostMapping("/listarUsuarios")
+	public String listarUsuario(Model model, UsuarioVO usuario) {
+		System.out.println("listando");
+		consultarUsuarios();
+		model.addAttribute("usuarios", getListaUsuarios());
+		
+		return "/pages/reportes/listaUsuarios";
+
+	}
+
+	@GetMapping("/listarUsuarios")
+	public String listarUsuario(Model model) {
+		consultarUsuarios();
+		model.addAttribute("usuarios", getListaUsuarios());
+		//model.addAttribute("usuarios", clienteTienda.getUsuarios());
+		return "/pages/reportes/listaUsuarios";
+	}
+	
 	
 	@PostMapping("/crearUsuario")
 	public String crearUsuario(Model model, UsuarioVO usuario) {
