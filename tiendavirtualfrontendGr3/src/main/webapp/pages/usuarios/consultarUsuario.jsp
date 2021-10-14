@@ -12,6 +12,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <link rel="stylesheet" href="../../assets/css/usuarios.css">
+<link rel="stylesheet" href="../../assets/css/tabla.css">
 <link rel="stylesheet" href="../../assets/css/admin.css">
 <link rel="stylesheet" href="../../assets/fontawesome/css/all.css">
 <title>Usuario</title>
@@ -22,28 +23,36 @@
     <div class="crud-container">
         <div class="crud users">
             <div class="users-form-container">
-                <form class="form-agregar" action="/crearUsuario" method="post">
-                    <label class="label-form" for="cedula"><i class="fas far fa-id-card"></i>Cédula</label>
-                    <input class="input-form" id="cedula" type="text" name="cedula" autocomplete="off" ">
-                    
-                    <label class="label-form" for="usuario"><i class="fas fa-user-alt"></i>Usuario</label>
-                    <input class="input-form" id="usuario" type="text" name="rol" autocomplete="off">
-
-                    <label class="label-form" for="nombre"><i class="fas fa-user-tag"></i>Nombre Completo</label>
-                    <input class="input-form" id="nombre" type="text" name="nombre" autocomplete="off">
-
-                    <label class="label-form" for="password"><i class="fas fa-lock"></i>Contraseña</label>
-                    <input class="input-form" id="password" type="password" name="contrasena">
-
-                    <label class="label-form" for="correo"><i class="fas fa-at"></i>Correo Electrónico</label>
-                    <input class="input-form" id="correo" type="email" name="email" autocomplete="off">
+                <form class="form-agregar" action="/consultarUsuario" method="post">
+                    <label class="label-form" for="cedula"><i class="fas far fa-id-card"></i>Cédula Usuario</label>
+                    <input class="input-form" id="cedula" type="text" name="cedula" autocomplete="off">
                     <div class="button-container">
-                        <input class="button-form" type="submit" value="Agregar"  onclick="location.reload()"> 
+                        <input class="button-form" type="submit" value="Consultar"> 
                         <a href="/pages/usuarios/usuarios.jsp" class="button-form" >Volver</a>               
                     </div>
                 </form>
-            </div>
-        </div> 
-	</div>
+               	<c:choose>
+               		<c:when test="${usuario.nombre!=null}">
+						<div id="main-container">
+							<table>
+								<thead id="cabecera">
+									<tr>
+										<th class="izquierda">Cedula</th>
+										<th>Email</th>
+										<th class="derecha">Nombre</th>	
+									</tr>
+								</thead>
+								<tr>
+									<td>${usuario.cedula}</td>
+									<td>${usuario.email}</td>
+									<td>${usuario.nombre}</td>
+								</tr>
+							</table>
+						</div>
+               		</c:when>
+               	</c:choose>	
+        	</div>
+    	</div>
+    </div> 
 </body>
 </html>

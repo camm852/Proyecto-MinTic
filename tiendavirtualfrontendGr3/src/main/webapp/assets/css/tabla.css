@@ -1,0 +1,49 @@
+@charset "ISO-8859-1";
+
+/*tabla*/
+
+
+#main-container{
+	margin-left: 30vw;
+	margin-top: 50px;
+	width: 600px;
+}
+
+table{
+	background-color:  #F3F1F5;
+	text-align: left;
+	border-collapse: collapse;
+	width: 100%;
+	text-align: center;
+	font-weight: 900;
+}
+
+th, td{
+	padding: 20px;
+}
+
+td{
+	background-color:  #F3F1F5;
+}
+
+#cabecera{
+	background-color:  #BFA2DB;	
+	border-bottom: solid 5px #0F362D;
+	color: white;
+}
+
+
+
+thead tr .izquierda{
+	border-top-left-radius: 20px; 
+}
+
+thead tr .derecha{
+	border-top-right-radius: 20px; 
+}
+
+@media screen and (max-width: 1400px) {
+	#main-container{
+	margin-left: 20vw;
+	}
+}

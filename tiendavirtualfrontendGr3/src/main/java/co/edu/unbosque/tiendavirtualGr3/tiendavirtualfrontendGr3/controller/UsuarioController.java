@@ -64,6 +64,20 @@ public class UsuarioController {
 		return "index";
 	}
 	
+	@PostMapping("/consultarUsuario")
+	public String consultarUsuario(Model model,UsuarioVO usuario) {
+		objDao = new UsuarioDAO();
+		
+		UsuarioVO usuarioConsultado = objDao.consultarUsuario(usuario);
+		
+		if(usuarioConsultado!=null) {
+			model.addAttribute("usuario", usuarioConsultado);
+		}else {
+			model.addAttribute("error","No se encontro el usuario");
+			System.out.println("No encontro");
+		}
+		return "/pages/usuarios/consultarUsuario";
+	}
 	
 	@PostMapping("/crearUsuario")
 	public String crearUsuario(Model model, UsuarioVO usuario) {

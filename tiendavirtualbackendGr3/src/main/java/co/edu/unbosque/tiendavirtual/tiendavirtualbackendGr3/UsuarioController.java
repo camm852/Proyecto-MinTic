@@ -27,9 +27,14 @@ public class UsuarioController {
 	
 	@PostMapping("/agregarUsuario")
 	public Usuario agregarUsuario(@RequestBody Usuario usuario) {
-		System.out.println("Agregando usuario - backend");
 		UsuarioDAO dao = new UsuarioDAO();
 		return dao.agregarUsuario(usuario);
+	}
+	
+	@PostMapping("/consultarUsuario")
+	public Usuario consultarUsuario(@RequestBody Usuario usuario) {
+		UsuarioDAO dao = new UsuarioDAO();
+		return dao.consultarUsuario(usuario);
 	}
 	
 	@RequestMapping("/actualizarUsuario")

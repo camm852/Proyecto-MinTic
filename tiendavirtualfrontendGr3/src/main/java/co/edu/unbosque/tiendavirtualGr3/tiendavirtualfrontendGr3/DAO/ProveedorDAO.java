@@ -5,8 +5,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
 
+import co.edu.unbosque.tiendavirtualGr3.tiendavirtualfrontendGr3.vo.ClienteVO;
 import co.edu.unbosque.tiendavirtualGr3.tiendavirtualfrontendGr3.vo.ProveedorVO;
-import co.edu.unbosque.tiendavirtualGr3.tiendavirtualfrontendGr3.vo.UsuarioVO;
 import reactor.core.publisher.Mono;
 
 @Service
@@ -30,6 +30,22 @@ private static final String URL = "http://localhost:8080";
 			System.out.println("---->" + e.getMessage());
 			return null;
 		}
+	}
+	
+	public ProveedorVO consultarProveedor(ProveedorVO proveedorDto) {
+		try {
+			WebClient webClient = WebClient.create(URL);
+			ProveedorVO objProveedor=null;
+			Mono<ProveedorVO> response = webClient.post().uri(URL + "/consultarProveedor")
+					.body(Mono.just(proveedorDto), ProveedorVO.class).retrieve().bodyToMono(ProveedorVO.class);
+			objProveedor=response.block();
+			return objProveedor;
+		} catch (WebClientResponseException e) {
+			e.getMessage();
+			System.out.println("---->" + e.getMessage());
+			return null;
+		}
+		
 	}
 	
 	public ProveedorVO actualizarProveedor(ProveedorVO proveedorDto) {
