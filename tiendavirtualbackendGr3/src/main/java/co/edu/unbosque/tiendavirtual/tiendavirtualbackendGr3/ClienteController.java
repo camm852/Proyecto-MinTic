@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.edu.unbosque.tiendavirtual.tiendavirtualbackendGr3.DTO.Cliente;
+import co.edu.unbosque.tiendavirtual.tiendavirtualbackendGr3.DTO.Usuario;
 import co.edu.unbosquetiendavirtual.tiendavirtualbackendGr3.DAO.ClienteDAO;
+import co.edu.unbosquetiendavirtual.tiendavirtualbackendGr3.DAO.UsuarioDAO;
 
 
 
@@ -26,6 +28,12 @@ public class ClienteController {
 	public Cliente agregarCliente(@RequestBody Cliente clienteDTO) {
 		ClienteDAO dao = new ClienteDAO();
 		return dao.consultarCliente(clienteDTO);
+	}
+	
+	@PostMapping("/agregarCliente")
+	public Cliente agregaCliente(@RequestBody Cliente clienteDTO) {
+		ClienteDAO dao = new ClienteDAO();
+		return dao.agregarCliente(clienteDTO);
 	}
 	
 	

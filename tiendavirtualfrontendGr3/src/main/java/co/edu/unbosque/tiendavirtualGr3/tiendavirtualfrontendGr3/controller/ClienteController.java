@@ -1,19 +1,70 @@
 package co.edu.unbosque.tiendavirtualGr3.tiendavirtualfrontendGr3.controller;
 
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import co.edu.unbosque.tiendavirtualGr3.tiendavirtualfrontendGr3.DAO.ClienteDAO;
-import co.edu.unbosque.tiendavirtualGr3.tiendavirtualfrontendGr3.DAO.UsuarioDAO;
 import co.edu.unbosque.tiendavirtualGr3.tiendavirtualfrontendGr3.vo.ClienteVO;
-import co.edu.unbosque.tiendavirtualGr3.tiendavirtualfrontendGr3.vo.UsuarioVO;
+
+
+
 
 @Controller
 public class ClienteController {
+	private ArrayList<ClienteVO> listaClientes;
 	@Autowired
 	private ClienteDAO objDao;
+	
+	public void consultarCliente() {
+		objDao = new ClienteDAO();
+		String json = objDao.listarClientes();
+		System.out.println("Consultando");
+		if(json  != null) {
+            Type listType = new TypeToken<ArrayList<ClienteVO>>(){}.getType();
+            Gson gson = new Gson();
+            listaClientes = gson.fromJson(json, listType);
+        }else {
+        	listaClientes = new ArrayList<ClienteVO>();
+        }
+	}
+
+
+	public ArrayList<ClienteVO> getListaClientes() {
+		return listaClientes;
+	}
+
+
+	public void setListaClientes(ArrayList<ClienteVO> listaClientes) {
+		this.listaClientes = listaClientes;
+	}
+	
+
+	@PostMapping("/listarClientes")
+	public String listarCliente(Model model, ClienteVO usuario) {
+		System.out.println("listando");
+		consultarCliente();
+		model.addAttribute("clientes", getListaClientes());
+		
+		return "/pages/reportes/listaClientes";
+
+	}
+
+	@GetMapping("/listarClientes")
+	public String listarCliente(Model model) {
+		consultarCliente();
+		model.addAttribute("clientes", getListaClientes());
+		//model.addAttribute("usuarios", clienteTienda.getUsuarios());
+		return "/pages/reportes/listaClientes";
+	}
 	
 	@PostMapping("/crearCliente")
 	public String crearUsuario(Model model, ClienteVO cliente) {
