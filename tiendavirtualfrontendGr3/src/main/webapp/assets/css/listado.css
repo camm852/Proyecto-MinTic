@@ -1,0 +1,42 @@
+@charset "ISO-8859-1";
+
+@import url('https://fonts.googleapis.com/css2?family=Scheherazade+New&display=swap');
+
+.listado-container{
+	margin-left: 230px;
+}
+
+.tittle-container{
+	margin-top: 30px;
+	margin-left: 42vw;
+}
+
+.tittle-container .tittle{
+	display: inline-block;
+	position: relative;
+	font-family: 'Scheherazade New', serif;
+	text-align: center;
+}
+
+.tittle-container .tittle::after, .tittle-container .tittle::before{
+	content: '';
+	position: absolute;
+	width: 120px;
+	height: 3px;
+	background-color: black;
+	top: 1em;
+}
+
+.tittle-container .tittle::before{
+	left: -130px;
+}
+
+.tittle-container .tittle::after{
+	right: -130px;
+}
+
+@media screen and (max-width: 1400px) {
+	.tittle-container{
+		margin-left: 36vw;
+	}
+}

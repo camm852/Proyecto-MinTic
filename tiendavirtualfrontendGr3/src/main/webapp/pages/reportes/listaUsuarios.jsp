@@ -13,42 +13,43 @@
 <meta http-equiv="Last-Modified" content="0">
 <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
 <meta http-equiv="Pragma" content="no-cache">
-<link rel="stylesheet" href="../../assets/css/usuarios.css">
-<link rel="stylesheet" href="../../assets/css/admin.css">
+<link rel="stylesheet" href="../../assets/css/tabla.css">
+<link rel="stylesheet" href="../../assets/css/listado.css">
 <link rel="stylesheet" href="../../assets/fontawesome/css/all.css">
-<title>Guardar Estudiantes</title>
+<title>Listado Usuario</title>
 </head>
 <body>
-<c:import url="../../imports/sidebar.jsp"></c:import>
-
-<form name="consultaUusarioForm" action="/listarUsuarios" method="post">
-</form>
-
-<br><br>
-<table name="tablaListado" style="text-align:center; margin:auto;">
-<caption>Listado de usuarios</caption>
-<thead>
-	<tr>
-		<td>#</td>
-		<td>email</td>
-		<td>nombre de usuario</td>
-		<td>contraseña</td>
-		<td>usuario</td>
-		
-	</tr>
-</thead>
-<tbody>
-<c:forEach items="${usuarios}" var="usr">
-<tr>
-	<td>${usr.cedula}</td>
-	<td>${usr.email}</td>
-	<td>${usr.nombre}</td>
-	<td>${usr.contrasena}</td>
-	<td>${usr.rol}</td>
+	<c:import url="../../imports/sidebar.jsp"></c:import>
 	
-</tr>
-</c:forEach>
-</tbody>
-</table>
+	<form name="consultaUusarioForm" action="/listarUsuarios" method="post">
+	</form>
+	<div class="listado-container">
+		<div class="tittle-container">
+			<h2 class="tittle">Listado de usuarios</h2>
+		</div>
+		<div id="main-container">
+			<table name="tablaListado">
+				<thead id="cabecera">
+					<tr>
+						<th class="izquierda">cedula</td>
+						<th>email</td>
+						<th>nombre</td>
+						<th class="derecha">Rol</td>
+						
+					</tr>
+				</thead>
+				<tbody>
+				<c:forEach items="${usuarios}" var="usr">
+					<tr>
+						<td>${usr.cedula}</td>
+						<td>${usr.email}</td>
+						<td>${usr.nombre}</td>
+						<td>${usr.rol}</td>
+					</tr>
+				</c:forEach>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </body>
 </html>
