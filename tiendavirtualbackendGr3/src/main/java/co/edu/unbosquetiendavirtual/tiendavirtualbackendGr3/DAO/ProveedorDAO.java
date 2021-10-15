@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import co.edu.unbosque.tiendavirtual.tiendavirtualbackendGr3.DTO.Cliente;
 import co.edu.unbosque.tiendavirtual.tiendavirtualbackendGr3.DTO.Proveedor;
 
 
@@ -67,6 +68,47 @@ public class ProveedorDAO {
 	  		JOptionPane.showMessageDialog(null, "no se pudo consultar el proveedor\n"+e);
 	  	  }
 	  	  return proveedor;
+	}
+	
+	public Proveedor consultarProveedor(Proveedor proveedor) {
+		Conexion conn =  new Conexion();
+		Proveedor proveedorEnc = null;
+		PreparedStatement ps = null;
+		Proveedor proveedorRet = null;
+		ResultSet rs =null;
+		
+		String sql = "SELECT * FROM tienda.proveedores WHERE nitproveedor like ?";
+		
+		try {
+			ps =  conn.getConnection().prepareStatement(sql);
+			ps.setLong(1, proveedor.getNit());
+			rs =  ps.executeQuery();
+			while(rs.next()) {
+				Integer nit = rs.getInt(1);
+				String ciudad = rs.getString(2);
+				String direccion = rs.getString(3);
+				String nombre =  rs.getString(4);
+				String telefono =  rs.getString(5);
+				proveedorEnc =  new Proveedor(nit,ciudad,direccion,nombre,telefono);
+			}
+			proveedorRet = proveedorEnc;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			conn.desconectar();
+			try {
+				ps.close();
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
+		return proveedorRet;
 	}
 	
 	 public Proveedor actualizarProveedor(Proveedor proveedor) {

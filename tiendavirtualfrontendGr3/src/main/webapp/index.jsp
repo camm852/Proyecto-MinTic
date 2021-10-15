@@ -31,7 +31,7 @@
         <div class="incorrect-container">
             <c:choose>
 			<c:when test="${usuario.rol == null}">
-				<em>${error}</em>
+				<p>${error}</p>
 			</c:when>
 			</c:choose>	
         </div>

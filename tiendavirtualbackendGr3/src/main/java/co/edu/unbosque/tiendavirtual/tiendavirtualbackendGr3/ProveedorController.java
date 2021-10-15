@@ -30,6 +30,12 @@ public class ProveedorController {
 		return dao.agregarProveedor(proveedorDTO);
 	}
 	
+	@PostMapping("/consultarProveedor")
+	public Proveedor consultarProveedor(@RequestBody Proveedor proveedorDTO) {
+		ProveedorDAO dao = new ProveedorDAO();
+		return dao.consultarProveedor(proveedorDTO);
+	}
+	
 	@PostMapping("/actualizarProveedor")
 	public Proveedor actualizarProveedor(@RequestBody Proveedor proveedorDTO) {
 		ProveedorDAO objDAO = new ProveedorDAO();

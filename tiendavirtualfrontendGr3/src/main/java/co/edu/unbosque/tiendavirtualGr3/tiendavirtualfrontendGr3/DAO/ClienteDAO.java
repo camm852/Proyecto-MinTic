@@ -32,6 +32,22 @@ public class ClienteDAO {
 		
 	}
 	
+	public ClienteVO consultarCliente(ClienteVO clienteDto) {
+		try {
+			WebClient webClient = WebClient.create(URL);
+			ClienteVO objCliente=null;
+			Mono<ClienteVO> response = webClient.post().uri(URL + "/consultarCliente")
+					.body(Mono.just(clienteDto), ClienteVO.class).retrieve().bodyToMono(ClienteVO.class);
+			objCliente=response.block();
+			return objCliente;
+		} catch (WebClientResponseException e) {
+			e.getMessage();
+			System.out.println("---->" + e.getMessage());
+			return null;
+		}
+		
+	}
+	
 	public ClienteVO actualizarCliente(ClienteVO clienteDto) {
 		try {
 			WebClient webClient = WebClient.create(URL);

@@ -22,11 +22,13 @@ public class ClienteController {
 			return objDAO.listaDeClientes();
 	}
 	
-	@PostMapping("/agregarCliente")
+	@PostMapping("/consultarCliente")
 	public Cliente agregarCliente(@RequestBody Cliente clienteDTO) {
 		ClienteDAO dao = new ClienteDAO();
-		return dao.agregarCliente(clienteDTO);
+		return dao.consultarCliente(clienteDTO);
 	}
+	
+	
 	
 	@PostMapping("/actualizarCliente")
 	public Cliente actualizarCliente(@RequestBody Cliente clienteDTO) {

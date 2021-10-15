@@ -116,6 +116,47 @@ public class UsuarioDAO {
 	  	  return usuario;
 	}
 	
+	public Usuario consultarUsuario(Usuario usr) {
+		Conexion conn =  new Conexion();
+		Usuario usuarioEnc = null;
+		PreparedStatement ps = null;
+		Usuario usuarioRet = null;
+		ResultSet rs =null;
+		
+		String sql = "SELECT * FROM tienda.usuarios WHERE cedula_usuario like ?";
+		
+		try {
+			ps =  conn.getConnection().prepareStatement(sql);
+			ps.setLong(1, usr.getCedula());
+			rs =  ps.executeQuery();
+			while(rs.next()) {
+				Integer cedula = rs.getInt(1);
+				String email = rs.getString(2);
+				String nombre =  rs.getString(3);
+				String psswrd =  rs.getString(4);
+				String rol = rs.getString(5);
+				usuarioEnc =  new Usuario(cedula,email,nombre, psswrd, rol);
+			}
+			usuarioRet = usuarioEnc;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			conn.desconectar();
+			try {
+				ps.close();
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
+		return usuarioRet;
+	}
+	
 	 public Usuario actualizar_usuario(Usuario user) {
 	        
 	        try {

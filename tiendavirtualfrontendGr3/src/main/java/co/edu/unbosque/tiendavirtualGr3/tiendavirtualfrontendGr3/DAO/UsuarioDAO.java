@@ -84,6 +84,22 @@ public class UsuarioDAO {
 
 	}
 	
+	public UsuarioVO consultarUsuario(UsuarioVO usuarioDto) {
+		try {
+			WebClient webClient = WebClient.create(URL);
+			UsuarioVO objUsuario = null;
+			Mono<UsuarioVO> response = webClient.post().uri(URL + "/consultarUsuario")
+					.body(Mono.just(usuarioDto), UsuarioVO.class).retrieve().bodyToMono(UsuarioVO.class);
+			System.out.println(response);
+			objUsuario = response.block();
+			return objUsuario;
+		} catch (WebClientResponseException e) {
+			e.getMessage();
+			System.out.println("---->" + e.getMessage());
+			return null;
+		}
+	}
+	
 	public UsuarioVO actualizarUsuario(UsuarioVO usuarioDto) {
 
 		try {

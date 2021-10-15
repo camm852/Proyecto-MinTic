@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import co.edu.unbosque.tiendavirtual.tiendavirtualbackendGr3.DTO.Cliente;
+import co.edu.unbosque.tiendavirtual.tiendavirtualbackendGr3.DTO.Usuario;
 
 
 
@@ -74,6 +75,48 @@ public class ClienteDAO {
 	  	  }
 	  	  return cliente;
 	}
+
+	public Cliente consultarCliente(Cliente cliente) {
+		Conexion conn =  new Conexion();
+		Cliente clienteEnc = null;
+		PreparedStatement ps = null;
+		Cliente clienteRet = null;
+		ResultSet rs =null;
+		
+		String sql = "SELECT * FROM tienda.clientes WHERE cedula_cliente like ?";
+		
+		try {
+			ps =  conn.getConnection().prepareStatement(sql);
+			ps.setLong(1, cliente.getCedula());
+			rs =  ps.executeQuery();
+			while(rs.next()) {
+				Long cedula = rs.getLong(1);
+				String direccion = rs.getString(2);
+				String email = rs.getString(3);
+				String nombre =  rs.getString(4);
+				String telefono =  rs.getString(4);
+				clienteEnc =  new Cliente(cedula,direccion,email,nombre, telefono);
+			}
+			clienteRet = clienteEnc;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			conn.desconectar();
+			try {
+				ps.close();
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
+		return clienteRet;
+	}
+	
 	
 	 public Cliente actualizar_cliente(Cliente cliente) {
 	        
