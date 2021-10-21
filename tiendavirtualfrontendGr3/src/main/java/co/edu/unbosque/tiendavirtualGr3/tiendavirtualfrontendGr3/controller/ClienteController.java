@@ -55,7 +55,6 @@ public class ClienteController {
 		model.addAttribute("clientes", getListaClientes());
 		
 		return "/pages/reportes/listaClientes";
-
 	}
 
 	@GetMapping("/listarClientes")
@@ -92,6 +91,20 @@ public class ClienteController {
 		return "/pages/clientes/consultarCliente";
 	}
 	
+	@PostMapping("/consultarClienteVenta")
+	public String consultarClienteVenta(Model model, ClienteVO cliente) {
+		objDao = new ClienteDAO();
+		
+		ClienteVO clienteConsultado = objDao.consultarCliente(cliente);
+		
+		if(clienteConsultado!=null) {
+			model.addAttribute("cliente", clienteConsultado);
+		}else {
+			model.addAttribute("error","No se encontro el cliente");
+			System.out.println("No encontro");
+		}
+		return "/pages/ventas/agregarVenta";
+	}
 	
 	
 	

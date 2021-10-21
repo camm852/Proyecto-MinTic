@@ -17,7 +17,6 @@
 	<title>Usuario</title>
 </head>
 <body>          	
-	<c:set var="url" value="tiendavirtualfrontendGr3"></c:set>
 	<c:import url="../../imports/sidebar.jsp"></c:import>
     <div class="crud-container">
         <div class="crud users">

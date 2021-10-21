@@ -45,7 +45,7 @@
                 </a>
             </li>
             <li class="li-container">
-                <a class="a-container" id="ventas-a" href="#">
+                <a class="a-container" id="ventas-a" href="/pages/ventas/agregarVenta.jsp">
                     <i class="fas fa-coins"></i>
                     <span class="links_name">Ventas</span>
                 </a>
