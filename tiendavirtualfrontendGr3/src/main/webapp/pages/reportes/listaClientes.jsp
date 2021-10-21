@@ -1,3 +1,5 @@
+<%@page import="co.edu.unbosque.tiendavirtualGr3.tiendavirtualfrontendGr3.DAO.ProductoDAO"%>
+<%@page import="co.edu.unbosque.tiendavirtualGr3.tiendavirtualfrontendGr3.DAO.ClienteDAO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -54,4 +56,11 @@
 		</div>
 	</div>
 </body>
+
+<script>
+<% ProductoDAO prductos = new ProductoDAO(); %>
+var json = <%=prductos.listarProductos()%>
+console.log(json);
+</script>
+
 </html>
