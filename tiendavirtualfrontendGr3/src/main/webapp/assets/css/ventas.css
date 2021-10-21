@@ -1,0 +1,56 @@
+@charset "ISO-8859-1";
+
+
+.venta-container{
+	margin-left: 230px;
+	padding-top: 50px;
+}
+
+.informacion-cliente-container{
+	margin-left: 50px;
+}
+
+.crud-productos-container{
+	margin-top: 50px;
+	margin-left: 100px;
+}
+
+
+.tittles-container{
+	display: flex;
+	text-align: center;
+}
+
+.tittles-container .t-1{
+	margin-left: 40px;
+}
+
+.tittles-container .t-2{
+	margin-left: 170px;
+}
+
+.tittles-container .t-3{
+	margin-left: 60px;
+}
+
+.tittles-container .t-4{
+	margin-left: 75px;
+}
+
+.input-form{
+	width: 190px;
+	margin-left: 0px;
+	margin-right: 0px;
+    padding: 2px 0;
+}
+
+
+.button-form{
+    width: 100px;
+}
+
+.crud-productos-container .productos-container .crud-productos .cantidadProducto{
+	margin-left: 20px;
+	margin-right: 20px;
+	width: 50px;
+}
