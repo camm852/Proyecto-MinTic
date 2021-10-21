@@ -39,7 +39,7 @@
                 </a>
             </li>
             <li class="li-container">
-                <a class="a-container" id="productos-a" href="#">
+                <a class="a-container" id="productos-a" href="/pages/productos/uploadfile.jsp">
                     <i class="fas fa-shopping-bag"></i>
                     <span class="links_name">Productos</span>
                 </a>
