@@ -1,7 +1,9 @@
 package co.edu.unbosque.tiendavirtualGr3.tiendavirtualfrontendGr3.controller;
 
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,7 @@ import co.edu.unbosque.tiendavirtualGr3.tiendavirtualfrontendGr3.vo.EstudianteVO
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
 
 @Controller
 public class EstudianteController {
@@ -70,7 +73,5 @@ public class EstudianteController {
 		//model.addAttribute("usuarios", clienteTienda.getUsuarios());
 		return "crearEstudiante";
 	}
-
-	
 
 }

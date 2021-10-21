@@ -1,0 +1,152 @@
+@charset "ISO-8859-1";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    --main-color: #BFA2DB;
+    --secondary-color-1: #F3F1F5;
+    --secondary-color-2: #F0D9FF;
+    --secondary-color-3: #7F7C82;
+}
+
+.crud-container{
+    position: relative;
+    margin-left: 230px;
+}
+
+/* botones para el crud*/
+
+.crud-container .selects{
+    position: absolute;
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 15%;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.crud-container .selects .select-crud{
+    width: 200px;
+    height: 200px;
+    background-color: var(--main-color);
+    margin-right: 25px;
+    border-radius: 20px;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.crud-container .selects .select-crud p{
+    display: block;
+    margin-top: 50px;
+    
+}
+
+.crud-container .selects .select-crud p i{
+    display: block;
+    margin-top: 10px;
+}
+
+/*formularios*/
+
+
+.users-form-container{
+    width: 100vw;
+    height: 100vh;
+}
+
+
+
+.users-form-container .form-agregar{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 900px;
+    margin-top: 10%;
+    margin-left: 25vw;
+}
+
+
+
+.users-form-container .input-form{
+    width: 220px;
+    margin-left: 55px;
+    margin-right: 30px;
+    padding: 4px 0;
+    border: none;
+    border-radius: 8px;
+}
+
+.input-form:focus{
+    outline: none;
+    box-shadow: 0 0 3pt 2pt #BFA2DB;
+}
+
+
+.users-form-container .fas{
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.users-form-container form  #cedula{
+    margin-left: 138px;
+}
+
+.users-form-container form  #correo{
+    margin-left: 56px;
+}
+
+.users-form-container form  #nombre{
+    margin-left: 45px;
+}
+
+.users-form-container form #password{
+    margin-left: 26px;
+}
+
+.users-form-container form .label-form, .users-form-container form .input-form{
+    margin-bottom: 30px;
+}
+
+.button-container{
+    display:flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.button-form{
+    display: inline-block;
+    background-color: var(--main-color);
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    font-weight:500;
+    margin-right: 20px;
+    margin-top: 40px;
+    width: 100px;
+    color: var(--secondary-color-1);
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button-form:hover{
+    background-color: #9e80ba;
+}
+
+
+@media screen and (max-width: 1400px) {
+    
+    .users-form-container .form-agregar{
+        margin-left: 10vw;
+    }
+}
