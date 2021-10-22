@@ -14,7 +14,7 @@ import co.edu.unbosque.tiendavirtualGr3.tiendavirtualfrontendGr3.DAO.ProductoDAO
 import co.edu.unbosque.tiendavirtualGr3.tiendavirtualfrontendGr3.vo.ProductoVO;
 
 @Controller
-public class ProductoContoller {
+public class ProductoController {
 	
 	@PostMapping("/uploadCSVFile")
 	public String uploadFile(Model model, MultipartFile file) throws IOException {

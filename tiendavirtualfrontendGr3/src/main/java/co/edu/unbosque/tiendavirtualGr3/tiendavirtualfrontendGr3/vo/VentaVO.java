@@ -1,17 +1,17 @@
-package co.edu.unbosque.tiendavirtual.tiendavirtualbackendGr3.DTO;
+package co.edu.unbosque.tiendavirtualGr3.tiendavirtualfrontendGr3.vo;
 
-public class Venta {	
+public class VentaVO {	
 	long cedula_cliente;
 	long cedula_usuario;
 	long ivaventa;
 	long total_venta;
 	long valor_venta;
 	
-	public Venta() {
+	public VentaVO() {
 		
 	}
 	
-	public Venta(long cedula_cliente, long cedula_usuario, long ivaventa, long total_venta, long valor_venta) {
+	public VentaVO(long cedula_cliente, long cedula_usuario, long ivaventa, long total_venta, long valor_venta) {
 		super();
 		this.cedula_cliente = cedula_cliente;
 		this.cedula_usuario = cedula_usuario;

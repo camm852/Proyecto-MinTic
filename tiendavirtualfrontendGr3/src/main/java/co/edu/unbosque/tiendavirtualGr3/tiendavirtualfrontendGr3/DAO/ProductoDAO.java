@@ -2,15 +2,21 @@ package co.edu.unbosque.tiendavirtualGr3.tiendavirtualfrontendGr3.DAO;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import co.edu.unbosque.tiendavirtualGr3.tiendavirtualfrontendGr3.vo.ProductoVO;
+import co.edu.unbosque.tiendavirtualGr3.tiendavirtualfrontendGr3.vo.UsuarioVO;
 import reactor.core.publisher.Mono;
 
 
@@ -22,7 +28,16 @@ public class ProductoDAO {
 	@Autowired
 	private WebClient webClient;
 	
-public String listarProductos() {
+	public ArrayList<ProductoVO> getListaProductos(){
+	
+		Type listType = new TypeToken<ArrayList<ProductoVO>>(){}.getType();
+        Gson gson = new Gson();
+		ArrayList<ProductoVO> productos =  gson.fromJson(listarProductos(), listType);
+		
+		return productos;
+	}
+	
+	public String listarProductos() {
 		
 		try {
 

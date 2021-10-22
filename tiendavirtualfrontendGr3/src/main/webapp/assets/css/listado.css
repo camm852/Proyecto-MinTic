@@ -7,6 +7,11 @@
 	margin-bottom: 50px;
 }
 
+.table-productos-container .listado-container .form-productos{
+	margin-left: 35.5vw;
+	margin-top: 50px;
+}
+
 .tittle-container{
 	margin-top: 30px;
 	margin-left: 42vw;
@@ -37,6 +42,11 @@
 }
 
 @media screen and (max-width: 1400px) {
+
+	.table-productos-container .listado-container .form-productos{
+		margin-left: 27vw;
+	}
+
 	.tittle-container{
 		margin-left: 36vw;
 	}

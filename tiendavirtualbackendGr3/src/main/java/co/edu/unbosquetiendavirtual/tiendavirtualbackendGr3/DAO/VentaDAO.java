@@ -17,20 +17,29 @@ public class VentaDAO {
 	
 
 	
-	public Venta registrarVenta(Venta venta) {
-		Conexion conex = new Conexion();
+	public Venta agregarVenta(Venta venta) {
 		try {
-			Statement estatuto = conex.getConnection().createStatement();
-			estatuto.executeUpdate("INSERT INTO tienda.ventas VALUES('"+venta.getCodigo_detalle_venta()+"','"+venta.getCantidad_producto()+"','"+ venta.getCodigo_producto()+"','"
-					+ venta.getCodigo_venta()+"','"+ venta.getValor_total()+"','"+ venta.getValor_venta()+"','"+venta.getValoriva()+"');");
-			
-			estatuto.close();
-			conex.desconectar();
+	  		  Conexion conex= new Conexion();
+		  	   PreparedStatement consulta = conex.getConnection().prepareStatement("insert into tienda.ventas (cedula_cliente, cedula_usuario, ivaventa, total_venta, valor_venta) values(?,?,?,?,?)");
+		  	   System.out.println("Se hizo conexion");
+	  	 
+	  		   
+	  		   consulta.setLong(1, venta.getCedula_cliente());
+	  		   consulta.setLong(2, venta.getCedula_usuario());
+	  		   consulta.setLong(3, venta.getIvaventa());
+	  		   consulta.setLong(4, venta.getTotal_venta());
+	  		   consulta.setLong(5, venta.getValor_venta());
+	  	    
+	  		   consulta.executeUpdate();
+	   
+	  	    consulta.close();
+	  	    conex.desconectar();
+
+	  	 
+	  	  } catch (SQLException e) {
+	  		venta = null;
+	  	   System.out.println("no se pudo agregar la venta\n"+e);
+	  	  }
+	  	  return venta;
 		}
-		catch(SQLException e) {
-			venta = null;
-				System.out.println(e.getMessage());
-		}
-		return venta;
-	}
 }

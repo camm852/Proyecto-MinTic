@@ -17,10 +17,10 @@ import co.edu.unbosquetiendavirtual.tiendavirtualbackendGr3.DAO.VentaDAO;
 public class VentaController {
 	
 	
-	@PutMapping("/registrarVenta")
+	@PostMapping("/agregarVenta")
 	public Venta registrarVenta(@RequestBody Venta venta) {
 		VentaDAO dao = new VentaDAO();
-		return dao.registrarVenta(venta);
+		return dao.agregarVenta(venta);
 	}
 	
 	

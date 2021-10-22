@@ -57,10 +57,4 @@
 	</div>
 </body>
 
-<script>
-<% ProductoDAO prductos = new ProductoDAO(); %>
-var json = <%=prductos.listarProductos()%>
-console.log(json);
-</script>
-
 </html>

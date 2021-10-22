@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page import="co.edu.unbosque.tiendavirtualGr3.tiendavirtualfrontendGr3.DAO.ProductoDAO"%>
 <%@ page import="co.edu.unbosque.tiendavirtualGr3.tiendavirtualfrontendGr3.vo.*" %>
 <%@ page import="co.edu.unbosque.tiendavirtualGr3.tiendavirtualfrontendGr3.controller.*" %>
 <%@ page import="java.util.*" %>
@@ -22,7 +23,7 @@
 	<div class="venta-container">
 		<div class="informacion-cliente-container">
 			<form  action="/consultarClienteVenta" method="post">
-				<label for="cedulaCliente">Cedula</label>
+				<label for="cedulaCliente">Cedula*</label>
 				<input class="input-form" type="text" name="cedula" id="cedulaCliente"  value="${cliente.cedula}" autocomplete="off">
 				<input class="input-form button-form" type="submit" value="Consultar">
 				<label for="nombreCliente">Nombre</label>
@@ -33,7 +34,7 @@
 		</div>
 		<div class="crud-productos-container">
 			<div class="tittles-container">
-				<div class="tittle t-1">Cod.Producto</div>
+				<div class="tittle t-1">Cod.Producto*</div>
 				<div class="tittle t-2">Nombre Producto</div>
 				<div class="tittle t-3">Cant</div>
 				<div class="tittle t-4">Vlr. Total</div>
@@ -66,10 +67,55 @@
 						<input class="input-form valorProducto" id="valor-3" type="text" autocomplete="off">
 					</form>
 				</div>
+				<div class="totales-container">
+					<div class="formulario-envio">
+						<form id="form-envio" action="/agregarVenta" method="post">
+							<div class="envio">
+								<input class="input-form button-form" id="enviarVenta" type="submit" value="Confirmar">
+								<input type="text" name="cedula_cliente" value="${cliente.cedula}" id="cedulaCliente-envio" hidden>
+								<input type="text" name="cedula_usuario" id="cedulaUsuario-envio" hidden>
+							</div>
+							<div class="labels-envio">
+								<label for="">Total Iva</label>
+								<label for="">Total Venta</label>
+								<label for="">Total con Iva</label>
+							</div>
+							<div class="totales">
+								<input class="input-form" type="text" name="ivaventa" id="ivaVenta" readonly>
+								<input class="input-form" type="text" name="total_venta" id="totalVenta" readonly>							
+								<input class="input-form" type="text" name="valor_venta" id="valorVenta" readonly>
+							</div>
+						</form>
+					</div>
+				</div>
 			</div>
 		</div>
+		<div class="error-container">
+
+		</div>
+		
+		<c:choose>
+			<c:when test="${agrego != null}">
+				<script type="text/javascript">
+					alert("Venta realizada")
+				</script>
+			</c:when>
+		</c:choose>	
+		
 	</div>
 	<script>
+		
+		let enviarVenta=document.getElementById("enviarVenta")
+
+		enviarVenta.addEventListener("click",(e)=>{
+			if(document.getElementById("nombreCliente").value==0 || document.getElementById("valorVenta").value==0){
+				e.preventDefault();
+				console.log("hola")
+				document.querySelector(".error-container").innerHTML="Por favor rellene los campos marcados con asterisco"
+			}else{
+				document.getElementById("cedulaUsuario-envio").value=100452050;
+			}
+		})
 
 		let sumit1=document.getElementById("sumit-1");
 		let sumit2=document.getElementById("sumit-2");
@@ -79,41 +125,44 @@
 		let codigo2=document.getElementById("codigo-2");
 		let codigo3=document.getElementById("codigo-3");
 		
-		let productos=[
-			{
-				"codigo":"123",
-				"iva":"2000",
-				"nitproveedor":"123",
-				"nombre":"tomate",
-				"precio":"3000",
-				"precioVenta":"5000"
-			},
-			{
-				"codigo":"125",
-				"iva":"2000",
-				"nitproveedor":"153",
-				"nombre":"papa",
-				"precio":"3000",
-				"precioVenta":"7000"
-			},
-			{
-				"codigo":"126",
-				"iva":"2000",
-				"nitproveedor":"133",
-				"nombre":"yuca",
-				"precio":"3000",
-				"precioVenta":"20000"
-			}
-		]
+		<% ProductoDAO prductos = new ProductoDAO(); %>
+		var productos = <%=prductos.listarProductos()%>
+
+		// let productos=[
+		// 	{
+		// 		"codigo":"123",
+		// 		"iva":"2000",
+		// 		"nitproveedor":"123",
+		// 		"nombre":"tomate",
+		// 		"precio":"3000",
+		// 		"precioVenta":"5000"
+		// 	},
+		// 	{
+		// 		"codigo":"125",
+		// 		"iva":"2000",
+		// 		"nitproveedor":"153",
+		// 		"nombre":"papa",
+		// 		"precio":"3000",
+		// 		"precioVenta":"7000"
+		// 	},
+		// 	{
+		// 		"codigo":"126",
+		// 		"iva":"2000",
+		// 		"nitproveedor":"133",
+		// 		"nombre":"yuca",
+		// 		"precio":"3000",
+		// 		"precioVenta":"20000"
+		// 	}
+		// ]
 
 		
 
 		sumit1.addEventListener("click",(e)=>{
 			e.preventDefault();
 			const codigo=codigo1.value
-			let producto = productos.find(producto=>producto.codigo == codigo);
+			let producto = productos.find(producto=>producto.codigo_producto == codigo);
 			if(producto!=null){
-				document.getElementById("nombreProducto-1").value=producto.nombre;
+				document.getElementById("nombreProducto-1").value=producto.nombre_producto;
 			}else{
 
 			}
@@ -122,9 +171,9 @@
 		sumit2.addEventListener("click",(e)=>{
 			e.preventDefault();
 			const codigo=codigo2.value
-			let producto = productos.find(producto=>producto.codigo == codigo);
+			let producto = productos.find(producto=>producto.codigo_producto == codigo);
 			if(producto!=null){
-				document.getElementById("nombreProducto-2").value=producto.nombre;
+				document.getElementById("nombreProducto-2").value=producto.nombre_producto;
 			}else{
 
 			}
@@ -133,16 +182,16 @@
 		sumit3.addEventListener("click",(e)=>{
 			e.preventDefault();
 			const codigo=codigo3.value
-			let producto = productos.find(producto=>producto.codigo == codigo);
+			let producto = productos.find(producto=>producto.codigo_producto == codigo);
 			if(producto!=null){
-				document.getElementById("nombreProducto-3").value=producto.nombre;
+				document.getElementById("nombreProducto-3").value=producto.nombre_producto;
 			}else{
 
 			}
 		})
 
 		function buscarProducto(nombre){
-			return productos.find(producto=>producto.nombre==nombre)
+			return productos.find(producto=>producto.nombre_producto==nombre)
 		}
 
 		setInterval(() => {
@@ -153,7 +202,8 @@
 			if(document.getElementById("nombreProducto-1").value.length!=0){
 				valor1.removeAttribute("readonly");
 				let producto=buscarProducto(document.getElementById("nombreProducto-1").value);
-				document.getElementById("valor-1").value=valor1.value*producto.precioVenta;
+				document.getElementById("valor-1").value=valor1.value*producto.precio_venta;
+				
 				if(valor1.value<=0){
 					valor1.value=1;
 				}
@@ -164,7 +214,8 @@
 			if(document.getElementById("nombreProducto-2").value.length!=0){
 				valor2.removeAttribute("readonly");
 				let producto=buscarProducto(document.getElementById("nombreProducto-2").value);
-				document.getElementById("valor-2").value=valor2.value*producto.precioVenta;
+				document.getElementById("valor-2").value=valor2.value*producto.precio_venta;
+				
 				if(valor2.value<=0){
 					valor2.value=1;
 				}
@@ -175,14 +226,63 @@
 			if(document.getElementById("nombreProducto-3").value.length!=0){
 				valor3.removeAttribute("readonly");
 				let producto=buscarProducto(document.getElementById("nombreProducto-3").value);
-				document.getElementById("valor-3").value=valor3.value*producto.precioVenta;
+				document.getElementById("valor-3").value=valor3.value*producto.precio_venta;
+				
 				if(valor3.value<=0){
 					valor3.value=1;
 				}
 			}else{
 				valor3.setAttribute("readonly","");
 			}
+			
+			let iva1=0;
+			let iva2=0;
+			let iva3=0;
 
+			var total1=0
+			var total2=0
+			var total3=0
+
+			let producto1=buscarProducto(document.getElementById("nombreProducto-1").value)
+			let producto2=buscarProducto(document.getElementById("nombreProducto-2").value)
+			let producto3=buscarProducto(document.getElementById("nombreProducto-3").value)
+
+			let ivaTotal=document.getElementById("ivaVenta").value
+			let totalVenta=document.getElementById("totalVenta").value
+
+			
+			
+				
+			if(producto1!=0){
+				iva1=valor1.value*producto1.ivacompra;
+				total1=document.getElementById("valor-1").value
+				total1=Number(total1);
+				document.getElementById("ivaVenta").value=iva1
+				document.getElementById("totalVenta").value=total1
+				var total=Number(ivaTotal)+Number(totalVenta)
+				document.getElementById("valorVenta").value=total
+			}
+			
+			if(producto2!=0){
+				iva2=valor2.value*producto2.ivacompra;
+				total2=document.getElementById("valor-2").value
+				total2=Number(total2)
+				document.getElementById("ivaVenta").value=iva1+iva2
+				document.getElementById("totalVenta").value=total1+total2
+			}
+
+			
+			if(producto3!=0){
+				iva3=valor3.value*producto3.ivacompra;
+				total3=document.getElementById("valor-3").value
+				total3=Number(total3);
+				document.getElementById("ivaVenta").value=iva1+iva2+iva3
+				document.getElementById("totalVenta").value=total1+total2+total3
+			}
+
+
+			
+			
 		}, 100);
 	</script>
 </body>
