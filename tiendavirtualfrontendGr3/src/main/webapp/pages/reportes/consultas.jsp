@@ -19,7 +19,7 @@
             <div class="selects">
                 <a href="/listarUsuarios" class="select-crud select-actualizar"><p><i class="fas fa-user-plus"></i><br>Listado de usuarios</p></a>
 				<a href="/listarClientes" class="select-crud select-actualizar"><p><i class="fas fa-user-cog"></i><br>Listado de clientes</p></a>
-				<a href="/pages/usuarios/consultarUsuario.jsp" class="select-crud select-actualizar"><p><i class="fas fa-search"></i><br>Ventas por cliente</p></a>
+				<a href="/listarVentas" class="select-crud select-actualizar"><p><i class="fas fa-search"></i><br>Ventas por cliente</p></a>
             </div>
         </div> 
 	</div>

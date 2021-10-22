@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import co.edu.unbosque.tiendavirtual.tiendavirtualbackendGr3.DTO.Usuario;
 import co.edu.unbosque.tiendavirtual.tiendavirtualbackendGr3.DTO.Venta;
+import co.edu.unbosque.tiendavirtual.tiendavirtualbackendGr3.DTO.VentaLista;
+import co.edu.unbosquetiendavirtual.tiendavirtualbackendGr3.DAO.UsuarioDAO;
 import co.edu.unbosquetiendavirtual.tiendavirtualbackendGr3.DAO.VentaDAO;
 
 @RestController
@@ -23,7 +26,11 @@ public class VentaController {
 		return dao.agregarVenta(venta);
 	}
 	
-	
+	@RequestMapping("/listarVentas")
+	public ArrayList<VentaLista> listaDeVentas() {
+		VentaDAO objDAO=new VentaDAO(); 
+			return objDAO.listaDeVentas();
+	}
 	
 
 }
