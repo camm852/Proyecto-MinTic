@@ -1,6 +1,10 @@
 @charset "ISO-8859-1";
 
 
+label{
+	font-weight: 900;
+}
+
 .venta-container{
 	margin-left: 30vw;
 	padding-top: 50px;
@@ -19,6 +23,7 @@
 .tittles-container{
 	display: flex;
 	text-align: center;
+	font-weight: 900;
 }
 
 .tittles-container .t-1{

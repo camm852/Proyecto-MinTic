@@ -15,6 +15,7 @@
 <meta http-equiv="Last-Modified" content="0">
 <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
 <meta http-equiv="Pragma" content="no-cache">
+
 <link rel="stylesheet" href="../../assets/css/tabla.css">
 <link rel="stylesheet" href="../../assets/css/listado.css">
 <link rel="stylesheet" href="../../assets/fontawesome/css/all.css">
@@ -27,15 +28,15 @@
 	</form>
 	<div class="listado-container">
 		<div class="tittle-container">
-			<h2 class="tittle">Listado de ventas</h2>
+			<h2 class="tittle">Total de ventas por cliente</h2>
 		</div>
 		<div id="main-container">
 			<table name="tablaListado">
 				<thead id="cabecera">
 					<tr>
-						<th class="izquierda">cedula</td>
-						<th>nombre</td>
-						<th class="derecha">total</td>
+						<th class="izquierda">Cedula</td>
+						<th>Nombre</td>
+						<th class="derecha">Total</td>
 						
 					</tr>
 				</thead>
@@ -51,12 +52,14 @@
 						<c:set var="total" value="${total+cli.ventas_totales}" />	
 					</tr>
 				</c:forEach>
-				
-				
 				</tbody>
 			</table>
 			
-			<input type="text" value="${total}">
+			<div class="total-container">
+				<label for="">Total Ventas $</label>
+				<input class="input-form" type="text"  readonly value="${total}">
+			</div>
+			
 		</div>
 	</div>
 </body>

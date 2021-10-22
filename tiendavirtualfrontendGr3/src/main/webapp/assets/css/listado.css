@@ -2,18 +2,49 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Scheherazade+New&display=swap');
 
-.listado-container{
-	margin-left: 230px;
-	margin-bottom: 50px;
-}
-
+/* productos*/
 .table-productos-container .listado-container .form-productos{
 	margin-left: 35.5vw;
 	margin-top: 50px;
 }
 
+/*------------------*/
+
+.listado-container{
+	margin-left: 230px;
+	margin-bottom: 50px;
+}
+
+
+.listado-container .total-container{
+	margin-left: 310px;
+	padding-top: 50px;
+}
+
+
+
+.listado-container .total-container .input-form{
+	margin-left: 15px;
+	padding: 4px 0;
+    border: none;
+    border-radius: 8px;
+	text-align: center;
+	font-size: 13px;
+	font-weight: 900;
+	background-color: var(--secondary-color-1);
+}
+
+.listado-container .total-container label{
+	font-weight: 900;
+}
+
+.listado-container .total-container .input-form:focus{
+	outline: none;
+    box-shadow: 0 0 3pt 2pt #BFA2DB;
+}
+
 .tittle-container{
-	margin-top: 30px;
+	padding-top: 30px;
 	margin-left: 42vw;
 }
 
